@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- groupId is redundant (inherited from parent), but requiredby Maven Central -->
+    <!-- groupId is redundant (inherited from parent), but required by Maven Central -->
     <groupId>guru.nicks</groupId>
     <artifactId>parent</artifactId>
     <version>0.1.0-alpha.1</version>
