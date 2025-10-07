@@ -12,7 +12,7 @@
     <!-- groupId is redundant (inherited from parent), but required by Maven Central -->
     <groupId>guru.nicks</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1.0-alpha.1</version>
+    <version>0.1.0-alpha.2</version>
     <packaging>pom</packaging>
 
     <name>Parent</name>
@@ -72,6 +72,36 @@
         </resources>
 
         <plugins>
+            <!-- run 'mvn jmh:benchmark' to run JMH benchmarks (they take a long time) -->
+            <plugin>
+                <groupId>pw.krejci</groupId>
+                <artifactId>jmh-maven-plugin</artifactId>
+                <!-- Parameters: https://github.com/metlos/jmh-maven-plugin?tab=readme-ov-file#passing-parameters -->
+                <!-- Parameter values: https://github.com/Valloric/jmh-playground/blob/master/README.md#jmh-command-line-options -->
+                <configuration>
+                    <!-- default is 5, which is more reliable but slower -->
+                    <fork>1</fork>
+                    <threads>2</threads>
+                    <!-- default is 600 sec. -->
+                    <timeout>300</timeout>
+
+                    <resultFormat>JSON</resultFormat>
+                    <resultsFile>${project.build.directory}/jmh-report.json</resultsFile>
+
+                    <!-- lower value increases scoreError significantly -->
+                    <warmupIterations>5</warmupIterations>
+                    <!-- 3 sec. per each warmup iteration -->
+                    <warmup>3</warmup>
+
+                    <!-- lower value increases scoreError significantly -->
+                    <iterations>5</iterations>
+                    <!-- 3 sec. per each benchmark iteration (benchmarks faster than this will be executed multiple
+                         times and will have multiple records in the same report - see
+                         https://github.com/google/benchmark/issues/952#issuecomment-609034381 for details) -->
+                    <timeOnIteration>3</timeOnIteration>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -99,23 +129,6 @@
                         <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Print project module structure before compilation automatically.
-                 To run manually: 'mvn structure:modules -pl .' -->
-            <plugin>
-                <groupId>org.qunix</groupId>
-                <artifactId>structure-maven-plugin</artifactId>
-                <!-- only run at root level -->
-                <inherited>false</inherited>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>modules</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -151,36 +164,6 @@
                         <classifier>jakarta</classifier>
                     </dependency>
                 </dependencies>
-            </plugin>
-
-            <!-- use 'mvn jmh:benchmark' to run JMH benchmarks manually (they take a long time) -->
-            <plugin>
-                <groupId>pw.krejci</groupId>
-                <artifactId>jmh-maven-plugin</artifactId>
-                <!-- Parameters: https://github.com/metlos/jmh-maven-plugin?tab=readme-ov-file#passing-parameters -->
-                <!-- Parameter values: https://github.com/Valloric/jmh-playground/blob/master/README.md#jmh-command-line-options -->
-                <configuration>
-                    <!-- default is 5, which is more reliable but slower -->
-                    <fork>1</fork>
-                    <threads>2</threads>
-                    <!-- default is 600 sec. -->
-                    <timeout>300</timeout>
-
-                    <resultFormat>JSON</resultFormat>
-                    <resultsFile>${project.build.directory}/jmh-report.json</resultsFile>
-
-                    <!-- lower value increases scoreError significantly -->
-                    <warmupIterations>5</warmupIterations>
-                    <!-- 3 sec. per each warmup iteration -->
-                    <warmup>3</warmup>
-
-                    <!-- lower value increases scoreError significantly -->
-                    <iterations>5</iterations>
-                    <!-- 3 sec. per each benchmark iteration (benchmarks faster than this will be executed multiple
-                         times and will have multiple records in the same report - see
-                         https://github.com/google/benchmark/issues/952#issuecomment-609034381 for details) -->
-                    <timeOnIteration>3</timeOnIteration>
-                </configuration>
             </plugin>
 
             <!-- mvn compile -->
@@ -287,58 +270,73 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- generate xx-sources.jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <configuration>
-                    <!-- allow empty source JARs -->
-                    <forceCreation>true</forceCreation>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- generate xx-javadoc.jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <doclint>none</doclint>
-                    <failOnError>false</failOnError>
-                    <verbose>false</verbose>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- mvn gpg:sign -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <configuration>
-                    <keyname>${gpg.keyname}</keyname>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- mvn clean deploy -Prelease -->
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- generate xx-sources.jar -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- generate xx-javadoc.jar -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <doclint>none</doclint>
+                            <failOnError>false</failOnError>
+                            <verbose>false</verbose>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- sign artifacts -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <configuration>
+                            <keyname>${gpg.keyname}</keyname>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
