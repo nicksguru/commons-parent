@@ -1,6 +1,6 @@
 # Parent
 
-Defines the build sequence.
+Build sequence for all Commons modules.
 
 ## Disclaimer
 

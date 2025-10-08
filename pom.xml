@@ -5,14 +5,14 @@
     <parent>
         <groupId>guru.nicks.commons</groupId>
         <artifactId>bom</artifactId>
-        <version>0.1.0-alpha.4</version>
+        <version>0.1.0-alpha.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <!-- groupId is redundant (inherited from parent), but required by Maven Central -->
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1.0-alpha.4</version>
+    <version>0.1.0-alpha.1</version>
     <packaging>pom</packaging>
 
     <name>Parent</name>
@@ -44,6 +44,10 @@
     <properties>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- different for each submodule -->
+        <generated.sources.directory>${project.build.directory}/generated-sources</generated.sources.directory>
+        <generated.resources.directory>${project.build.directory}/generated-resources</generated.resources.directory>
     </properties>
 
     <dependencies>
@@ -251,17 +255,29 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
+                    <fileSets>
+                        <fileSet>
+                            <directory>${project.build.directory}</directory>
+                            <includes>
+                                <include>jacoco.exec</include>
+                            </includes>
+                        </fileSet>
+                    </fileSets>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>prepare-agent-for-unit-tests</id>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>prepare-agent-for-integration-tests</id>
+                        <id>report</id>
+                        <phase>test</phase>
                         <goals>
-                            <goal>prepare-agent-integration</goal>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
