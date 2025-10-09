@@ -21,6 +21,9 @@ Pick the most recent version from
 </parent>
 ```
 
+Each module inheriting from this one must have `config/checkstyle.xml` in its root directory (not in the sources
+directory), as compilation is preceded by calling Maven Checkstyle plugin.
+
 The _maven-central_ profile eases deploy to Maven Central:\
 `$ mvn clean deploy -Pmaven-central`
 
