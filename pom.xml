@@ -15,7 +15,7 @@
     <version>0.1.0-alpha.8</version>
     <packaging>pom</packaging>
 
-    <name>Parent</name>
+    <name>Commons Parent</name>
     <description>Dependencies and build sequence for a typical Spring Boot application</description>
     <url>https://nicks.guru</url>
 
