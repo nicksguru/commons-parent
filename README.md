@@ -1,6 +1,41 @@
 # Parent
 
-Build sequence for all Commons modules.
+Provides build instructions and centralized dependency management for a typical Spring Boot application:
+
+- **Spring Boot & Spring Cloud** - Core framework and microservices support
+- **TestContainers** - Integration testing with containerized databases
+- **Camunda BPM** - Business process management and workflow engine
+- **AWS SDK** - Amazon Web Services integration
+- **Other libraries** - Security, monitoring, caching, and more
+
+## Usage
+
+Pick the most recent version from
+[Maven Central](https://central.sonatype.com/namespace/guru.nicks.commons), then use as follows:
+
+```xml
+<parent>
+    <groupId>guru.nicks.commons</groupId>
+    <artifactId>parent</artifactId>
+    <version>...</version>
+</parent>
+```
+
+The _maven-central_ profile eases deploy to Maven Central:\
+`$ mvn clean deploy -Pmaven-central`
+
+The GPG key ID (as per `gpg --list-keys`) is stored in `~/.m2/settings.xml` as follows:
+
+```xml
+<profiles>
+    <profile>
+        <id>maven-central</id>
+        <properties>
+            <gpg.keyname>...</gpg.keyname>
+        </properties>
+    </profile>
+</profiles>     
+```
 
 ## Disclaimer
 

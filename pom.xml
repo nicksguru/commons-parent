@@ -3,20 +3,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
          xmlns="http://maven.apache.org/POM/4.0.0">
     <parent>
-        <groupId>guru.nicks.commons</groupId>
-        <artifactId>bom</artifactId>
-        <version>0.1.0-alpha.7</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.6</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- groupId is redundant (inherited from parent), but required by Maven Central -->
-    <groupId>${project.parent.groupId}</groupId>
+    <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>${project.parent.version}</version>
+    <!-- WARNING: this version is duplicated in properties below -->
+    <version>0.1.0-alpha.8</version>
     <packaging>pom</packaging>
 
     <name>Parent</name>
-    <description>Build sequence for all Commons modules</description>
+    <description>Dependencies and build sequence for a typical Spring Boot application</description>
     <url>https://nicks.guru</url>
 
     <licenses>
@@ -42,13 +42,537 @@
     </scm>
 
     <properties>
+        <guru.nicks.commons.version>0.1.0-alpha.8</guru.nicks.commons.version>
+
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <testcontainers.version>1.21.3</testcontainers.version>
+        <camunda.version>7.23.0</camunda.version>
+        <freemarker.version>2.3.34</freemarker.version>
+        <togglz.version>4.4.0</togglz.version>
+
+        <!-- annotation processors -->
+        <jmh.version>1.37</jmh.version>
+        <maven-surefire-junit5-tree-reporter.version>1.4.0</maven-surefire-junit5-tree-reporter.version>
+        <lombok.version>1.18.38</lombok.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <yavi.version>0.16.0</yavi.version>
 
         <!-- different for each submodule -->
         <generated.sources.directory>${project.build.directory}/generated-sources</generated.sources.directory>
         <generated.resources.directory>${project.build.directory}/generated-resources</generated.resources.directory>
     </properties>
+
+    <repositories>
+        <!-- for groupId 'com.github.AuthorName' -->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>guru.nicks.commons</groupId>
+                <artifactId>bom</artifactId>
+                <version>${guru.nicks.commons.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- encode log messages as JSON -->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>8.1</version>
+            </dependency>
+
+            <!-- TestContainers: core + DB providers -->
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers</artifactId>
+                <version>${testcontainers.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>mysql</artifactId>
+                <version>${testcontainers.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${testcontainers.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>mongodb</artifactId>
+                <version>${testcontainers.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.redis</groupId>
+                <artifactId>testcontainers-redis</artifactId>
+                <version>2.2.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-wiremock</artifactId>
+                <version>4.3.0</version>
+            </dependency>
+
+            <!-- Camunda UI -->
+            <dependency>
+                <groupId>org.camunda.bpm.springboot</groupId>
+                <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+                <version>${camunda.version}</version>
+            </dependency>
+            <!-- REST API -->
+            <dependency>
+                <groupId>org.camunda.bpm.springboot</groupId>
+                <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+                <version>${camunda.version}</version>
+            </dependency>
+            <!-- embedded engine -->
+            <dependency>
+                <groupId>org.camunda.bpm.springboot</groupId>
+                <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+                <version>${camunda.version}</version>
+            </dependency>
+            <!-- assert library for testing embedded engine -->
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-bpm-assert</artifactId>
+                <version>${camunda.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-external-task-client</artifactId>
+                <version>${camunda.version}</version>
+            </dependency>
+            <!-- REST API client (Feign) -->
+            <dependency>
+                <groupId>org.camunda.community.rest</groupId>
+                <artifactId>camunda-platform-7-rest-client-spring-boot-openapi</artifactId>
+                <version>${camunda.version}</version>
+            </dependency>
+            <!-- for Camunda to execute Inline Script Tasks -->
+            <dependency>
+                <groupId>org.apache.groovy</groupId>
+                <artifactId>groovy-jsr223</artifactId>
+                <version>5.0.1</version>
+            </dependency>
+
+            <!-- all releases: https://github.com/spring-cloud/spring-cloud-release/tags -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2025.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.awspring.cloud</groupId>
+                <artifactId>spring-cloud-aws-dependencies</artifactId>
+                <version>3.4.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- override SNAPSHOT versions (rejected by Maven Central) with release versions -->
+            <dependency>
+                <groupId>org.springframework.modulith</groupId>
+                <artifactId>spring-modulith-events-aws-sns</artifactId>
+                <version>1.3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.modulith</groupId>
+                <artifactId>spring-modulith-events-aws-sqs</artifactId>
+                <version>1.3.9</version>
+            </dependency>
+
+            <!-- AWS dependencies for S3 etc., as per https://github.com/aws/aws-sdk-java-v2#importing-the-bom -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.34.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Cucumber tests; see HTML reports in each module's target/site/cucumber-reports/ -->
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-bom</artifactId>
+                <version>7.22.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- newer version than Spring Boot Dependencies module refers to -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.12.2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-bom</artifactId>
+                <version>3.27.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-bom</artifactId>
+                <version>2.3.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+
+            <!-- feature toggle -->
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-spring-boot-starter</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
+            <!-- needed to reference Feature class and FeatureManager bean without pulling the above starter -->
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-core</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-console</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.togglz</groupId>
+                <artifactId>togglz-spring-security</artifactId>
+                <version>${togglz.version}</version>
+            </dependency>
+
+            <!-- state machine -->
+            <dependency>
+                <groupId>org.springframework.statemachine</groupId>
+                <artifactId>spring-statemachine-autoconfigure</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.statemachine</groupId>
+                <artifactId>spring-statemachine-data-jpa</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+
+            <!-- Bucket4J -->
+            <dependency>
+                <groupId>com.bucket4j</groupId>
+                <artifactId>bucket4j_jdk17-core</artifactId>
+                <version>8.14.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bucket4j</groupId>
+                <artifactId>bucket4j_jdk17-postgresql</artifactId>
+                <version>8.14.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>3.50.0</version>
+            </dependency>
+
+            <!-- MongoDB migrations -->
+            <dependency>
+                <groupId>io.mongock</groupId>
+                <artifactId>mongock-community-bom</artifactId>
+                <version>5.5.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Spring Boot 3 specials -->
+            <dependency>
+                <groupId>io.mongock</groupId>
+                <artifactId>mongock-springboot-v3</artifactId>
+                <version>5.4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>io.mongock</groupId>
+                <artifactId>mongodb-springdata-v4-driver</artifactId>
+                <version>5.4.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.freefair.okhttp-spring-boot</groupId>
+                <artifactId>okhttp5-spring-boot-starter</artifactId>
+                <version>3.5.3</version>
+            </dependency>
+            <!-- Spring Boot 3.4 no longer depends on OkHttp and therefore removed the 'okhttp.version' property -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>4.12.0</version>
+            </dependency>
+
+            <!-- Outbox -->
+            <dependency>
+                <groupId>com.gruelbox</groupId>
+                <artifactId>transactionoutbox-spring</artifactId>
+                <version>6.0.585</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gruelbox</groupId>
+                <artifactId>transactionoutbox-jackson</artifactId>
+                <version>5.5.447</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-client</artifactId>
+                <version>6.1.7</version>
+            </dependency>
+
+            <!-- Apache commons -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.20.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.19.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.19.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-validator</groupId>
+                <artifactId>commons-validator</artifactId>
+                <version>1.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>1.14.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.11.0</version>
+            </dependency>
+            <!-- Russian morphology analysis. Reads a dictionary file to RAM - 110Mb! -->
+            <dependency>
+                <groupId>com.github.demidko</groupId>
+                <artifactId>aot</artifactId>
+                <version>2025.02.15</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>33.4.8-jre</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>am.ik.yavi</groupId>
+                <artifactId>yavi</artifactId>
+                <version>${yavi.version}</version>
+            </dependency>
+
+            <!-- JSON and other non-standard data types -->
+            <dependency>
+                <groupId>io.hypersistence</groupId>
+                <artifactId>hypersistence-utils-hibernate-62</artifactId>
+                <version>3.9.4</version>
+            </dependency>
+            <!-- GIS abstractions -->
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-spatial</artifactId>
+                <version>6.6.18.Final</version>
+                <!-- incompatible with Hibernate 6 (requires PgJdbcHelper class which is missing)
+                <version>7.0.1.Final</version-->
+            </dependency>
+
+            <!-- Obfuscates numbers (longs) -->
+            <dependency>
+                <groupId>org.hashids</groupId>
+                <artifactId>hashids</artifactId>
+                <version>1.0.3</version>
+            </dependency>
+
+            <!-- BouncyCastle encryption framework -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk18on</artifactId>
+                <version>1.82</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk18on</artifactId>
+                <version>1.82</version>
+            </dependency>
+
+            <!-- Spring Boot Admin server+UI -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>3.4.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>3.3.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-oauth2-client</artifactId>
+                <version>6.4.7</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>10.3</version>
+            </dependency>
+
+            <!-- Swagger -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>2.8.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>2.8.6</version>
+            </dependency>
+            <!-- annotate DTOs -->
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>2.2.31</version>
+            </dependency>
+
+            <!-- (de)compression of Kafka messages -->
+            <dependency>
+                <groupId>org.xerial.snappy</groupId>
+                <artifactId>snappy-java</artifactId>
+                <version>1.1.10.7</version>
+            </dependency>
+            <!-- MongoDB transport-level compression -->
+            <dependency>
+                <groupId>com.github.luben</groupId>
+                <artifactId>zstd-jni</artifactId>
+                <version>1.5.7-3</version>
+            </dependency>
+            <!-- OneNio serializer for @Cacheable -->
+            <dependency>
+                <groupId>ru.odnoklassniki</groupId>
+                <artifactId>one-nio</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+
+            <!-- class generation in runtime -->
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>1.17.5</version>
+            </dependency>
+            <!-- instantiates classes having no default constructor -->
+            <dependency>
+                <groupId>org.objenesis</groupId>
+                <artifactId>objenesis</artifactId>
+                <version>3.4</version>
+            </dependency>
+
+            <!-- XxHash3 -->
+            <dependency>
+                <groupId>net.openhft</groupId>
+                <artifactId>zero-allocation-hashing</artifactId>
+                <version>0.27ea0</version>
+            </dependency>
+            <!-- UUIDv7 and others: https://github.com/f4b6a3/uuid-creator/wiki/1.7.-UUIDv7 -->
+            <dependency>
+                <groupId>com.github.f4b6a3</groupId>
+                <artifactId>uuid-creator</artifactId>
+                <version>6.1.1</version>
+            </dependency>
+            <!-- FPE (FF3) encryption -->
+            <dependency>
+                <groupId>io.github.mysto</groupId>
+                <artifactId>ff3</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+
+            <!-- TOTP generator -->
+            <dependency>
+                <groupId>com.github.bastiaanjansen</groupId>
+                <artifactId>otp-java</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+            <!-- QR code generator and parser -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>3.5.3</version>
+            </dependency>
+            <!-- prints QR codes using ASCII characters -->
+            <dependency>
+                <groupId>com.github.auties00</groupId>
+                <artifactId>qr-terminal</artifactId>
+                <version>2.2</version>
+            </dependency>
+
+            <!-- IP-to-location lookup -->
+            <dependency>
+                <groupId>com.maxmind.geoip2</groupId>
+                <artifactId>geoip2</artifactId>
+                <version>4.3.0</version>
+            </dependency>
+
+            <!-- phone number validator and parser -->
+            <dependency>
+                <groupId>com.googlecode.libphonenumber</groupId>
+                <artifactId>libphonenumber</artifactId>
+                <version>9.0.8</version>
+            </dependency>
+
+            <dependency>
+                <groupId>guru.nidi</groupId>
+                <artifactId>graphviz-java</artifactId>
+                <version>0.18.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- needed for 'mvn jmh:benchmark' to process modules having no JMH benchmarks (otherwise JMH plugin fails) -->
@@ -70,6 +594,78 @@
                 <directory>${generated.resources.directory}</directory>
             </resource>
         </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.6.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.13</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.mysema.maven</groupId>
+                    <artifactId>apt-maven-plugin</artifactId>
+                    <version>1.1.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.fugerit.java</groupId>
+                    <artifactId>freemarker-maven-plugin</artifactId>
+                    <version>1.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.ferstl</groupId>
+                    <artifactId>depgraph-maven-plugin</artifactId>
+                    <version>4.0.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.qunix</groupId>
+                    <artifactId>structure-maven-plugin</artifactId>
+                    <version>0.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>ch.acanda.maven</groupId>
+                    <artifactId>spring-banner-plugin</artifactId>
+                    <version>1.6.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>pw.krejci</groupId>
+                    <artifactId>jmh-maven-plugin</artifactId>
+                    <version>0.2.2</version>
+                </plugin>
+
+                <!-- publishing -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.12.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.2.8</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.9.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 
         <plugins>
             <!-- run 'mvn jmh:benchmark' to run JMH benchmarks (they take a long time) -->
@@ -286,9 +882,9 @@
     </build>
 
     <profiles>
-        <!-- mvn clean deploy -Prelease -->
+        <!-- mvn clean deploy -Pmaven-central -->
         <profile>
-            <id>release</id>
+            <id>maven-central</id>
             <build>
                 <plugins>
                     <!-- generate xx-sources.jar -->
@@ -345,6 +941,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
                         </configuration>
                     </plugin>
                 </plugins>
