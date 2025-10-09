@@ -935,6 +935,7 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <!-- https://central.sonatype.org/publish/publish-portal-maven/ -->
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
@@ -942,6 +943,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
+                            <waitUntil>uploaded</waitUntil>
                         </configuration>
                     </plugin>
                 </plugins>
