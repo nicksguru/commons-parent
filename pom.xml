@@ -11,7 +11,7 @@
 
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <!-- WARNING: this version is duplicated in properties below -->
+    <!-- WARNING: this version is duplicated below -->
     <version>0.1.0-alpha.8</version>
     <packaging>pom</packaging>
 
