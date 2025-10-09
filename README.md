@@ -1,6 +1,6 @@
-# Parent
+# [Nicks.Guru](https://nicks.guru) Commons Parent
 
-Provides build instructions and centralized dependency management for a typical Spring Boot application:
+Provides dependencies and build sequence for a typical Spring Boot application:
 
 - **Spring Boot & Spring Cloud** - Core framework and microservices support
 - **TestContainers** - Integration testing with containerized databases
