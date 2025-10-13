@@ -79,7 +79,7 @@
         <dependencies>
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
-                <artifactId>parent</artifactId>
+                <artifactId>bom</artifactId>
                 <version>${guru.nicks.commons.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
