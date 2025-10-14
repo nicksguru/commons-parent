@@ -19,7 +19,8 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.fugerit.java:freemarker-maven-plugin:1.2.0
     org.freemarker:freemarker:2.3.34
 
-    org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.23.0
+    org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
+    org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.23.5
 
     io.cucumber:cucumber-bom:7.30.0
     io.github.resilience4j:resilience4j-bom:2.3.0
@@ -34,7 +35,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
     org.springframework.cloud:spring-cloud-dependencies:2025.0.0
     io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-    software.amazon.awssdk:bom:2.35.5
+    software.amazon.awssdk:bom:2.35.6
 
     org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
     org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1

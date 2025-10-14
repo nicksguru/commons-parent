@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version is duplicated below -->
-    <version>1.0.0-rc.3</version><!-- [BVM] -->
+    <version>1.0.0</version><!-- [BVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -44,13 +44,13 @@
     </issueManagement>
 
     <properties>
-        <guru.nicks.commons.version>1.0.0-rc.3</guru.nicks.commons.version><!-- [BVM] -->
+        <guru.nicks.commons.version>1.0.0</guru.nicks.commons.version><!-- [BVM] -->
 
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <testcontainers.version>1.21.3</testcontainers.version>
-        <camunda.version>7.23.0</camunda.version>
+        <camunda.version>7.24.0</camunda.version>
         <freemarker.version>2.3.34</freemarker.version>
         <togglz.version>4.4.0</togglz.version>
 
@@ -158,7 +158,7 @@
             <dependency>
                 <groupId>org.camunda.community.rest</groupId>
                 <artifactId>camunda-platform-7-rest-client-spring-boot-openapi</artifactId>
-                <version>${camunda.version}</version>
+                <version>7.23.5</version>
             </dependency>
             <!-- for Camunda to execute Inline Script Tasks -->
             <dependency>
@@ -198,7 +198,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.35.5</version>
+                <version>2.35.6</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
