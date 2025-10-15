@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version is duplicated below -->
-    <version>1.0.0</version><!-- [BVM] -->
+    <version>1.1.0</version><!-- [BVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -44,7 +44,7 @@
     </issueManagement>
 
     <properties>
-        <guru.nicks.commons.version>1.0.0</guru.nicks.commons.version><!-- [BVM] -->
+        <guru.nicks.commons.version>1.1.0</guru.nicks.commons.version><!-- [BVM] -->
 
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
