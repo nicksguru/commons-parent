@@ -29,13 +29,13 @@ declare -a CURRENT_MODULE_VERSIONS=(
 
     org.projectlombok:lombok:1.18.42
     org.mapstruct:mapstruct-processor:1.6.3
-    org.testcontainers:testcontainers:1.21.3
+    org.testcontainers:testcontainers:2.0.1
     am.ik.yavi:yavi:0.16.0
 
     org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
     org.springframework.cloud:spring-cloud-dependencies:2025.0.0
     io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-    software.amazon.awssdk:bom:2.35.6
+    software.amazon.awssdk:bom:2.35.9
 
     org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
     org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
