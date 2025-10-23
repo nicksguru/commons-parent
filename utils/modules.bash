@@ -35,19 +35,19 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
     org.springframework.cloud:spring-cloud-dependencies:2025.0.0
     io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-    software.amazon.awssdk:bom:2.35.9
+    software.amazon.awssdk:bom:2.36.0
 
     org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
     org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 
     org.togglz:togglz-spring-boot-starter:4.4.0
-    org.apache.groovy:groovy-jsr223:5.0.1
+    org.apache.groovy:groovy-jsr223:5.0.2
     com.bucket4j:bucket4j_jdk17-core:8.15.0
     org.redisson:redisson-spring-boot-starter:3.52.0
     io.mongock:mongock-community-bom:5.5.1
     io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
     com.gruelbox:transactionoutbox-spring:6.0.585
-    org.apache.activemq:activemq-client:6.1.7
+    org.apache.activemq:activemq-client:6.1.8
 
     commons-beanutils:commons-beanutils:1.11.0
     commons-codec:commons-codec:1.19.0
@@ -77,7 +77,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
     net.logstash.logback:logstash-logback-encoder:8.1
     net.bytebuddy:byte-buddy:1.17.8
     org.objenesis:objenesis:3.4
-    com.github.luben:zstd-jni:1.5.7-5
+    com.github.luben:zstd-jni:1.5.7-6
 
     net.openhft:zero-allocation-hashing:0.27ea1
     com.github.f4b6a3:uuid-creator:6.1.1
@@ -87,5 +87,5 @@ declare -a CURRENT_MODULE_VERSIONS=(
     com.google.zxing:javase:3.5.3
     com.github.auties00:qr-terminal:2.2
     com.maxmind.geoip2:geoip2:4.4.0
-    com.googlecode.libphonenumber:libphonenumber:9.0.16
+    com.googlecode.libphonenumber:libphonenumber:9.0.17
 )
