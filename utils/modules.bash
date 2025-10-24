@@ -35,7 +35,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
     org.springframework.cloud:spring-cloud-dependencies:2025.0.0
     io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-    software.amazon.awssdk:bom:2.36.0
+    software.amazon.awssdk:bom:2.36.1
 
     org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
     org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
