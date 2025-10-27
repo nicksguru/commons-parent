@@ -22,7 +22,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
     org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.23.5
 
-    io.cucumber:cucumber-bom:7.30.0
+    io.cucumber:cucumber-bom:7.31.0
     io.github.resilience4j:resilience4j-bom:2.3.0
     org.junit:junit-bom:6.0.0
     org.assertj:assertj-bom:3.27.3
@@ -35,7 +35,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
     org.springframework.cloud:spring-cloud-dependencies:2025.0.0
     io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-    software.amazon.awssdk:bom:2.36.1
+    software.amazon.awssdk:bom:2.36.2
 
     org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
     org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -46,8 +46,10 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.redisson:redisson-spring-boot-starter:3.52.0
     io.mongock:mongock-community-bom:5.5.1
     io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
-    com.gruelbox:transactionoutbox-spring:6.0.585
     org.apache.activemq:activemq-client:6.1.8
+
+    com.gruelbox:transactionoutbox-spring:6.1.653
+    com.gruelbox:transactionoutbox-jackson:6.1.653
 
     commons-beanutils:commons-beanutils:1.11.0
     commons-codec:commons-codec:1.19.0
@@ -74,7 +76,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
 
     org.xerial.snappy:snappy-java:1.1.10.8
     ru.odnoklassniki:one-nio:2.1.0
-    net.logstash.logback:logstash-logback-encoder:8.1
+    net.logstash.logback:logstash-logback-encoder:9.0
     net.bytebuddy:byte-buddy:1.17.8
     org.objenesis:objenesis:3.4
     com.github.luben:zstd-jni:1.5.7-6
