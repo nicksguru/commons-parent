@@ -24,7 +24,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
 
     io.cucumber:cucumber-bom:7.31.0
     io.github.resilience4j:resilience4j-bom:2.3.0
-    org.junit:junit-bom:6.0.0
+    org.junit:junit-bom:6.0.1
     org.assertj:assertj-bom:3.27.3
 
     org.projectlombok:lombok:1.18.42
@@ -35,7 +35,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
     org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
     org.springframework.cloud:spring-cloud-dependencies:2025.0.0
     io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-    software.amazon.awssdk:bom:2.36.2
+    software.amazon.awssdk:bom:2.37.3
 
     org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
     org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -72,7 +72,7 @@ declare -a CURRENT_MODULE_VERSIONS=(
 
     org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
     org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
-    io.swagger.core.v3:swagger-annotations:2.2.39
+    io.swagger.core.v3:swagger-annotations:2.2.40
 
     org.xerial.snappy:snappy-java:1.1.10.8
     ru.odnoklassniki:one-nio:2.1.0
