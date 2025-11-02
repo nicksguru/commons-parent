@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version is duplicated below -->
-    <version>1.9.2</version><!-- [BVM] -->
+    <version>1.9.3</version><!-- [BVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
