@@ -18,7 +18,7 @@ Pick the most recent version from
 <parent>
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>1.15.1</version>
+    <version>1.16.0</version>
 </parent>
 ```
 
