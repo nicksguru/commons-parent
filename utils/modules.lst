@@ -25,7 +25,7 @@ org.fugerit.java:freemarker-maven-plugin:1.2.0
 org.freemarker:freemarker:2.3.34
 
 org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
-org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.23.5
+org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.0
 
 io.cucumber:cucumber-bom:7.31.0
 io.github.resilience4j:resilience4j-bom:2.3.0
@@ -39,8 +39,8 @@ am.ik.yavi:yavi:0.16.0
 
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
-io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0
-software.amazon.awssdk:bom:2.38.1
+io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
+software.amazon.awssdk:bom:2.38.5
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -59,7 +59,7 @@ com.gruelbox:transactionoutbox-jackson:6.1.653
 commons-beanutils:commons-beanutils:1.11.0
 commons-codec:commons-codec:1.20.0
 commons-validator:commons-validator:1.10.0
-commons-io:commons-io:2.20.0
+commons-io:commons-io:2.21.0
 org.apache.commons:commons-lang3:3.19.0
 org.apache.commons:commons-collections4:4.5.0
 org.apache.commons:commons-text:1.14.0
@@ -82,7 +82,7 @@ io.swagger.core.v3:swagger-annotations:2.2.40
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.1.0
 net.logstash.logback:logstash-logback-encoder:9.0
-net.bytebuddy:byte-buddy:1.17.8
+net.bytebuddy:byte-buddy:1.18.1
 org.objenesis:objenesis:3.4
 com.github.luben:zstd-jni:1.5.7-6
 
@@ -91,7 +91,7 @@ com.github.f4b6a3:uuid-creator:6.1.1
 com.github.bastiaanjansen:otp-java:2.1.0
 io.github.mysto:ff3:1.2.0
 
-com.google.zxing:javase:3.5.3
+com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
 com.maxmind.geoip2:geoip2:4.4.0
 com.googlecode.libphonenumber:libphonenumber:9.0.18
