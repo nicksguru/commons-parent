@@ -1,6 +1,6 @@
 # [Nicks.Guru](https://nicks.guru) Commons Parent
 
-<img alt="Latest version" src="https://img.shields.io/maven-central/v/guru.nicks.commons/parent?filter=!25*&label=Latest%20version:&cacheSeconds=7200"> <img alt="Release date"  src="https://img.shields.io/maven-central/last-update/guru.nicks.commons/parent?label=&cacheSeconds=7200">
+<img alt="Latest version" src="https://img.shields.io/maven-central/v/guru.nicks.commons/parent?filter=!25.*&label=Latest%20version:&cacheSeconds=7200"/> <img alt="Release date" src="https://img.shields.io/maven-central/last-update/guru.nicks.commons/parent?label=&color=orange&cacheSeconds=7200"/>
 
 Provides dependencies and build sequence for all other Commons modules. Can be used in other Spring Boot applications
 as well:
