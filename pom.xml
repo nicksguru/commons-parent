@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>1.2511.2</version><!-- [PVM] -->
+    <version>2.2511.3</version><!-- [PVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -47,7 +47,7 @@
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <testcontainers.version>2.0.1</testcontainers.version>
+        <testcontainers.version>2.0.2</testcontainers.version>
         <camunda.version>7.24.0</camunda.version>
         <freemarker.version>2.3.34</freemarker.version>
         <togglz.version>4.4.0</togglz.version>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>1.2511.2</version><!-- [PVM] -->
+                <version>2.2511.3</version><!-- [PVM] -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -196,7 +196,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.38.5</version>
+                <version>2.38.7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -339,7 +339,7 @@
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>6.1.8</version>
+                <version>6.2.0</version>
             </dependency>
 
             <!-- Apache commons -->
@@ -351,7 +351,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.19.0</version>
+                <version>3.20.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
