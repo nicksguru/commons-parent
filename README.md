@@ -31,7 +31,7 @@ See full version history on
 <parent>
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>1.2511.1</version>
+    <version>1.2511.2</version>
 </parent>
 ```
 
