@@ -27,7 +27,7 @@ org.freemarker:freemarker:2.3.34
 org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
 org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.0
 
-io.cucumber:cucumber-bom:7.31.0
+io.cucumber:cucumber-bom:7.32.0
 io.github.resilience4j:resilience4j-bom:2.3.0
 org.junit:junit-bom:6.0.1
 org.assertj:assertj-bom:3.27.3
@@ -88,7 +88,7 @@ com.github.luben:zstd-jni:1.5.7-6
 net.openhft:zero-allocation-hashing:0.27ea1
 com.github.f4b6a3:uuid-creator:6.1.1
 com.github.bastiaanjansen:otp-java:2.1.0
-io.github.mysto:ff3:1.2.0
+com.ubiqsecurity:ubiqsecurity-fpe:2.1.1
 
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
