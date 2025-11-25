@@ -88,7 +88,6 @@ com.github.luben:zstd-jni:1.5.7-6
 net.openhft:zero-allocation-hashing:0.27ea1
 com.github.f4b6a3:uuid-creator:6.1.1
 com.github.bastiaanjansen:otp-java:2.1.0
-com.ubiqsecurity:ubiqsecurity-fpe:2.1.1
 
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
