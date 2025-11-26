@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.2511.9</version><!-- [PVM] -->
+    <version>100.2511.10</version><!-- [PVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.2511.9</version><!-- [PVM] -->
+                <version>100.2511.10</version><!-- [PVM] -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
