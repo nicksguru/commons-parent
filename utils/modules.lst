@@ -37,8 +37,9 @@ org.mapstruct:mapstruct-processor:1.6.3
 org.testcontainers:testcontainers:2.0.2
 am.ik.yavi:yavi:0.16.0
 
+# WARNING: 2025.1.0 pulls Spring Boot 4
+org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
-org.springframework.cloud:spring-cloud-dependencies:2025.1.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
 software.amazon.awssdk:bom:2.39.4
 
