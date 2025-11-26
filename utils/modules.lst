@@ -4,7 +4,7 @@
 #
 # Empty lines are ignored. Comments are only allowed in the beginning of a line.
 #
-org.springframework.boot:spring-boot-starter-parent:3.5.6
+org.springframework.boot:spring-boot-starter-parent:3.5.8
 
 org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0
 org.apache.maven.plugins:maven-surefire-plugin:3.5.4
@@ -38,9 +38,9 @@ org.testcontainers:testcontainers:2.0.2
 am.ik.yavi:yavi:0.16.0
 
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
-org.springframework.cloud:spring-cloud-dependencies:2025.0.0
+org.springframework.cloud:spring-cloud-dependencies:2025.1.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.39.2
+software.amazon.awssdk:bom:2.39.4
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -64,8 +64,8 @@ org.apache.commons:commons-lang3:3.20.0
 org.apache.commons:commons-collections4:4.5.0
 org.apache.commons:commons-text:1.14.0
 
-org.bouncycastle:bcprov-jdk18on:1.82
-org.bouncycastle:bcpkix-jdk18on:1.82
+org.bouncycastle:bcprov-jdk18on:1.83
+org.bouncycastle:bcpkix-jdk18on:1.83
 
 com.google.guava:guava:33.5.0-jre
 io.hypersistence:hypersistence-utils-hibernate-62:3.9.4
@@ -76,7 +76,7 @@ com.nimbusds:nimbus-jose-jwt:10.6
 
 org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
-io.swagger.core.v3:swagger-annotations:2.2.40
+io.swagger.core.v3:swagger-annotations:2.2.41
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.1.0
