@@ -41,13 +41,13 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.39.4
+software.amazon.awssdk:bom:2.40.2
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 
 org.togglz:togglz-spring-boot-starter:4.4.0
-org.apache.groovy:groovy-jsr223:5.0.2
+org.apache.groovy:groovy-jsr223:5.0.3
 com.bucket4j:bucket4j_jdk17-core:8.15.0
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
@@ -82,7 +82,7 @@ io.swagger.core.v3:swagger-annotations:2.2.41
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.1.0
 net.logstash.logback:logstash-logback-encoder:9.0
-net.bytebuddy:byte-buddy:1.18.1
+net.bytebuddy:byte-buddy:1.18.2
 org.objenesis:objenesis:3.4
 com.github.luben:zstd-jni:1.5.7-6
 
@@ -92,5 +92,5 @@ com.github.bastiaanjansen:otp-java:2.1.0
 
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
-com.maxmind.geoip2:geoip2:5.0.0
-com.googlecode.libphonenumber:libphonenumber:9.0.19
+com.maxmind.geoip2:geoip2:5.0.1
+com.googlecode.libphonenumber:libphonenumber:9.0.20
