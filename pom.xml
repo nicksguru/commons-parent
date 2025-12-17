@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.2512.7</version><!-- [PVM] -->
+    <version>100.2512.8</version><!-- [PVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -47,7 +47,7 @@
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <testcontainers.version>2.0.2</testcontainers.version>
+        <testcontainers.version>2.0.3</testcontainers.version>
         <camunda.version>7.24.0</camunda.version>
         <freemarker.version>2.3.34</freemarker.version>
         <togglz.version>4.4.0</togglz.version>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.2512.7</version><!-- [PVM] -->
+                <version>100.2512.8</version><!-- [PVM] -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -197,7 +197,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.40.5</version>
+                <version>2.40.10</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -492,7 +492,7 @@
             <dependency>
                 <groupId>ru.odnoklassniki</groupId>
                 <artifactId>one-nio</artifactId>
-                <version>2.1.0</version>
+                <version>2.2.0</version>
             </dependency>
 
             <!-- class generation in runtime -->
@@ -551,7 +551,7 @@
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.20</version>
+                <version>9.0.21</version>
             </dependency>
 
             <dependency>
