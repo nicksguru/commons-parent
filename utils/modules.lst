@@ -25,7 +25,7 @@ org.fugerit.java:freemarker-maven-plugin:1.2.0
 org.freemarker:freemarker:2.3.34
 
 org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
-org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.0
+org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.1
 
 io.cucumber:cucumber-bom:7.33.0
 io.github.resilience4j:resilience4j-bom:2.3.0
@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.41.4
+software.amazon.awssdk:bom:2.41.5
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -76,7 +76,7 @@ io.hypersistence:hypersistence-utils-hibernate-62:3.9.4
 org.hibernate.orm:hibernate-spatial:6.6.18.Final
 de.codecentric:spring-boot-admin-starter-server:3.5.6
 org.springframework.security:spring-security-oauth2-client:6.4.7
-com.nimbusds:nimbus-jose-jwt:10.6
+com.nimbusds:nimbus-jose-jwt:10.7
 
 org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
