@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.41.5
+software.amazon.awssdk:bom:2.41.7
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -96,4 +96,4 @@ com.github.bastiaanjansen:otp-java:2.1.0
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
 com.maxmind.geoip2:geoip2:5.0.2
-com.googlecode.libphonenumber:libphonenumber:9.0.21
+com.googlecode.libphonenumber:libphonenumber:9.0.22
