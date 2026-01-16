@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.41.7
+software.amazon.awssdk:bom:2.41.9
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -85,7 +85,7 @@ io.swagger.core.v3:swagger-annotations:2.2.41
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.0
 net.logstash.logback:logstash-logback-encoder:9.0
-net.bytebuddy:byte-buddy:1.18.3
+net.bytebuddy:byte-buddy:1.18.4
 org.objenesis:objenesis:3.4
 com.github.luben:zstd-jni:1.5.7-6
 
