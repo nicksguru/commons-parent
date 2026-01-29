@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260120.0</version><!-- [PVM] -->
+    <version>100.260129.0</version><!-- [PVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260120.0</version><!-- [PVM] -->
+                <version>100.260129.0</version><!-- [PVM] -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -162,7 +162,7 @@
             <dependency>
                 <groupId>org.apache.groovy</groupId>
                 <artifactId>groovy-jsr223</artifactId>
-                <version>5.0.3</version>
+                <version>5.0.4</version>
             </dependency>
 
             <!-- all releases: https://github.com/spring-cloud/spring-cloud-release/tags -->
@@ -197,7 +197,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.41.10</version>
+                <version>2.41.17</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -206,7 +206,7 @@
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
-                <version>7.33.0</version>
+                <version>7.34.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -329,12 +329,12 @@
             <dependency>
                 <groupId>com.gruelbox</groupId>
                 <artifactId>transactionoutbox-spring</artifactId>
-                <version>6.1.653</version>
+                <version>6.2.683</version>
             </dependency>
             <dependency>
                 <groupId>com.gruelbox</groupId>
                 <artifactId>transactionoutbox-jackson</artifactId>
-                <version>6.1.645</version>
+                <version>6.2.683</version>
             </dependency>
 
             <dependency>
@@ -473,7 +473,7 @@
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>2.2.41</version>
+                <version>2.2.42</version>
             </dependency>
 
             <!-- (de)compression of Kafka messages -->
@@ -505,14 +505,14 @@
             <dependency>
                 <groupId>org.objenesis</groupId>
                 <artifactId>objenesis</artifactId>
-                <version>3.4</version>
+                <version>3.5</version>
             </dependency>
 
             <!-- XxHash3 -->
             <dependency>
                 <groupId>net.openhft</groupId>
                 <artifactId>zero-allocation-hashing</artifactId>
-                <version>0.27ea1</version>
+                <version>2026.0</version>
             </dependency>
             <!-- UUIDv7 and others: https://github.com/f4b6a3/uuid-creator/wiki/1.7.-UUIDv7 -->
             <dependency>

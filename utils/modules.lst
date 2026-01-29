@@ -27,7 +27,7 @@ org.freemarker:freemarker:2.3.34
 org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
 org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.1
 
-io.cucumber:cucumber-bom:7.33.0
+io.cucumber:cucumber-bom:7.34.1
 io.github.resilience4j:resilience4j-bom:2.3.0
 org.junit:junit-bom:6.0.1
 org.assertj:assertj-bom:3.27.3
@@ -41,13 +41,13 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.41.10
+software.amazon.awssdk:bom:2.41.17
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 
 org.togglz:togglz-spring-boot-starter:4.4.0
-org.apache.groovy:groovy-jsr223:5.0.3
+org.apache.groovy:groovy-jsr223:5.0.4
 
 com.bucket4j:bucket4j_jdk17-core:8.16.0
 com.bucket4j:bucket4j_jdk17-postgresql:8.16.0
@@ -57,8 +57,8 @@ io.mongock:mongock-community-bom:5.5.1
 io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
 org.apache.activemq:activemq-client:6.2.0
 
-com.gruelbox:transactionoutbox-spring:6.1.653
-com.gruelbox:transactionoutbox-jackson:6.1.653
+com.gruelbox:transactionoutbox-spring:6.2.683
+com.gruelbox:transactionoutbox-jackson:6.2.683
 
 commons-beanutils:commons-beanutils:1.11.0
 commons-codec:commons-codec:1.20.0
@@ -80,16 +80,16 @@ com.nimbusds:nimbus-jose-jwt:10.7
 
 org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
-io.swagger.core.v3:swagger-annotations:2.2.41
+io.swagger.core.v3:swagger-annotations:2.2.42
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.0
 net.logstash.logback:logstash-logback-encoder:9.0
 net.bytebuddy:byte-buddy:1.18.4
-org.objenesis:objenesis:3.4
+org.objenesis:objenesis:3.5
 com.github.luben:zstd-jni:1.5.7-6
 
-net.openhft:zero-allocation-hashing:0.27ea1
+net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.1
 com.github.bastiaanjansen:otp-java:2.1.0
 
