@@ -41,16 +41,16 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.41.19
+software.amazon.awssdk:bom:2.41.25
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 
-org.togglz:togglz-spring-boot-starter:4.4.0
+org.togglz:togglz-spring-boot-starter:4.6.0
 org.apache.groovy:groovy-jsr223:5.0.4
 
-com.bucket4j:bucket4j_jdk17-core:8.16.0
-com.bucket4j:bucket4j_jdk17-postgresql:8.16.0
+com.bucket4j:bucket4j_jdk17-core:8.16.1
+com.bucket4j:bucket4j_jdk17-postgresql:8.16.1
 
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
@@ -87,7 +87,7 @@ ru.odnoklassniki:one-nio:2.2.0
 net.logstash.logback:logstash-logback-encoder:9.0
 net.bytebuddy:byte-buddy:1.18.4
 org.objenesis:objenesis:3.5
-com.github.luben:zstd-jni:1.5.7-6
+com.github.luben:zstd-jni:1.5.7-7
 
 net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.1
