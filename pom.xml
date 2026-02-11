@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260211.0</version><!-- [PVM] -->
+    <version>100.260211.1</version><!-- [PVM] -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260211.0</version><!-- [PVM] -->
+                <version>100.260211.1</version><!-- [PVM] -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -197,7 +197,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.41.25</version>
+                <version>2.41.26</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -802,6 +802,12 @@
                             <groupId>org.openjdk.jmh</groupId>
                             <artifactId>jmh-generator-annprocess</artifactId>
                             <version>${jmh.version}</version>
+                        </path>
+                        <!-- generate META-INF/spring-autoconfigure-metadata.properties
+                             for faster conditionals filtering -->
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-autoconfigure-processor</artifactId>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
