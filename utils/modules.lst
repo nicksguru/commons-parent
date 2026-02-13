@@ -51,6 +51,8 @@ org.apache.groovy:groovy-jsr223:5.0.4
 
 com.bucket4j:bucket4j_jdk17-core:8.16.1
 com.bucket4j:bucket4j_jdk17-postgresql:8.16.1
+com.bucket4j:bucket4j_jdk17-redis-common:8.16.1
+com.bucket4j:bucket4j_jdk17-redisson:8.16.1
 
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
@@ -96,4 +98,4 @@ com.github.bastiaanjansen:otp-java:2.1.0
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
 com.maxmind.geoip2:geoip2:5.0.2
-com.googlecode.libphonenumber:libphonenumber:9.0.23
+com.googlecode.libphonenumber:libphonenumber:9.0.24

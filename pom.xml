@@ -283,7 +283,12 @@
             </dependency>
             <dependency>
                 <groupId>com.bucket4j</groupId>
-                <artifactId>bucket4j_jdk17-postgresql</artifactId>
+                <artifactId>bucket4j_jdk17-redis-common</artifactId>
+                <version>8.16.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bucket4j</groupId>
+                <artifactId>bucket4j_jdk17-redisson</artifactId>
                 <version>8.16.1</version>
             </dependency>
 
@@ -551,7 +556,7 @@
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.23</version>
+                <version>9.0.24</version>
             </dependency>
 
             <dependency>
