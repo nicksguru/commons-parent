@@ -7,7 +7,7 @@
 org.springframework.boot:spring-boot-starter-parent:3.5.8
 
 org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0
-org.apache.maven.plugins:maven-surefire-plugin:3.5.4
+org.apache.maven.plugins:maven-surefire-plugin:3.5.5
 org.apache.maven.plugins:maven-gpg-plugin:3.2.8
 org.apache.maven.plugins:maven-javadoc-plugin:3.12.0
 org.apache.maven.plugins:maven-source-plugin:3.2.1
@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.42.6
+software.amazon.awssdk:bom:2.42.8
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
