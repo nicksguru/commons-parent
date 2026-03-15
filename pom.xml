@@ -89,6 +89,16 @@
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>9.0</version>
             </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.5.32</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.5.32</version>
+            </dependency>
 
             <!-- TestContainers: core + DB providers -->
             <dependency>
@@ -504,7 +514,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.5</version>
+                <version>1.18.7</version>
             </dependency>
             <!-- instantiates classes having no default constructor -->
             <dependency>

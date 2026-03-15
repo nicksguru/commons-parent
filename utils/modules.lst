@@ -85,10 +85,13 @@ io.swagger.core.v3:swagger-annotations:2.2.45
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.0
-net.logstash.logback:logstash-logback-encoder:9.0
-net.bytebuddy:byte-buddy:1.18.5
+net.bytebuddy:byte-buddy:1.18.7
 org.objenesis:objenesis:3.5
 com.github.luben:zstd-jni:1.5.7-7
+
+net.logstash.logback:logstash-logback-encoder:9.0
+ch.qos.logback:logback-classic:1.5.32
+ch.qos.logback:logback-core:1.5.32
 
 net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.1
