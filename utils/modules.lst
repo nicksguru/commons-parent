@@ -4,7 +4,7 @@
 #
 # Empty lines are ignored. Comments are only allowed in the beginning of a line.
 #
-org.springframework.boot:spring-boot-starter-parent:3.5.8
+org.springframework.boot:spring-boot-starter-parent:3.5.11
 
 org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0
 org.apache.maven.plugins:maven-surefire-plugin:3.5.5
