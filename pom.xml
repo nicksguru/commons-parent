@@ -685,7 +685,7 @@
                 <configuration>
                     <!-- default is 5, which is more reliable but slower -->
                     <fork>1</fork>
-                    <threads>2</threads>
+                    <threads>1</threads>
                     <!-- default is 600 sec. -->
                     <timeout>300</timeout>
 
@@ -693,16 +693,16 @@
                     <resultsFile>${project.build.directory}/jmh-report.json</resultsFile>
 
                     <!-- lower value increases scoreError significantly -->
-                    <warmupIterations>5</warmupIterations>
+                    <warmupIterations>2</warmupIterations>
                     <!-- 3 sec. per each warmup iteration -->
-                    <warmup>3</warmup>
+                    <warmup>1</warmup>
 
                     <!-- lower value increases scoreError significantly -->
-                    <iterations>5</iterations>
+                    <iterations>3</iterations>
                     <!-- 3 sec. per each benchmark iteration (benchmarks faster than this will be executed multiple
                          times and will have multiple records in the same report - see
                          https://github.com/google/benchmark/issues/952#issuecomment-609034381 for details) -->
-                    <timeOnIteration>3</timeOnIteration>
+                    <timeOnIteration>1</timeOnIteration>
                 </configuration>
             </plugin>
 
