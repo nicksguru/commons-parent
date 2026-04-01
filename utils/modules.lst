@@ -41,13 +41,13 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.42.21
+software.amazon.awssdk:bom:2.42.25
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 
 org.togglz:togglz-spring-boot-starter:4.6.1
-org.apache.groovy:groovy-jsr223:5.0.4
+org.apache.groovy:groovy-jsr223:5.0.5
 
 com.bucket4j:bucket4j_jdk17-core:8.17.0
 com.bucket4j:bucket4j_jdk17-redis-common:8.17.0
@@ -56,7 +56,7 @@ com.bucket4j:bucket4j_jdk17-redisson:8.17.0
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
 io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
-org.apache.activemq:activemq-client:6.2.2
+org.apache.activemq:activemq-client:6.2.3
 
 com.gruelbox:transactionoutbox-spring:6.2.683
 com.gruelbox:transactionoutbox-jackson:6.2.683
@@ -81,7 +81,7 @@ com.nimbusds:nimbus-jose-jwt:10.8
 
 org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
-io.swagger.core.v3:swagger-annotations:2.2.45
+io.swagger.core.v3:swagger-annotations:2.2.46
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.0
