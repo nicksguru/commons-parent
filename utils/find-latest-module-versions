@@ -1,151 +1,265 @@
 #!/usr/bin/env bash
 #
-# Finds the most recently released (which is NOT always the same as 'the latest') Maven module versions on Maven Central
-# and compares them to those listed below.
+# Finds the most recently released Maven module versions
+# and compares them to those listed in modules.lst.
 #
-set -e
+# don't set '-e' - custom functions may return 1
+set -uo pipefail
 DIR=$(dirname "$0")
 
+readonly MODULES_FILE="$DIR/modules.lst"
+readonly MAVEN_BASE_URL="https://repo.maven.apache.org/maven2"
+readonly CURL_TIMEOUT=30
+readonly CURL_MAX_TIME=60
+
+# Detect if we're in a terminal and should use colors.
+# Namely, check if both stdout (fd 1) and stderr (fd 2) are connected to a terminal
+if [[ -t 1 && -t 2 ]]; then
+    # Color codes for output (ANSI escape sequences). Format: '\033[<style>;<color>m'. Example:
+    #   \033 = ESC character (starts escape sequence)
+    #   [    = CSI (Control Sequence Introducer)
+    #   0;   = style 0 (normal/bold off)
+    #   31   = foreground color (red)
+    #   m    = end of sequence
+    readonly COLOR_RESET='\033[0m'      # reset all attributes to default
+    readonly COLOR_ERROR='\033[0;31m'   # red
+    readonly COLOR_WARN='\033[0;33m'    # yellow
+    readonly COLOR_INFO='\033[0;32m'    # green
+    readonly COLOR_DEBUG='\033[0;36m'   # cyan
+else
+    # not in a terminal - use empty strings to avoid escape sequences in output
+    readonly COLOR_RESET=''
+    readonly COLOR_ERROR=''
+    readonly COLOR_WARN=''
+    readonly COLOR_INFO=''
+    readonly COLOR_DEBUG=''
+fi
+
 declare -a REPORT
+declare -i FAILED_CHECKS=0
+
+function log_error() { echo -e "${COLOR_ERROR}[ERROR]${COLOR_RESET} $*" >&2; }
+function log_warn()  { echo -e "${COLOR_WARN}[WARN ]${COLOR_RESET} $*" >&2;  }
+function log_info()  { echo -e "${COLOR_INFO}[INFO ]${COLOR_RESET} $*" >&2;  }
+function log_debug() { echo -e "${COLOR_DEBUG}[DEBUG]${COLOR_RESET} $*" >&2; }
 
 #
-# Adds to $REPORT.
+# Parses semantic version into major, minor, patch components.
+# $1 - version string to parse (e.g., '1.2.3', '1.2', '1')
+# Returns: major minor patch as space-separated values, such as '1 2 3'.
+function parse_version() {
+    local version=$1
+
+    # a.b.c (with optional '-rc.1+build.123' suffix) -> a b c
+    if [[ "$version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+        echo "${BASH_REMATCH[1]} ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}"
+        return
+    fi
+
+    # a.b. -> a b 0
+    if [[ "$version" =~ ^([0-9]+)\.([0-9]+) ]]; then
+        echo "${BASH_REMATCH[1]} ${BASH_REMATCH[2]} 0"
+        return
+    fi
+
+    # a -> a 0 0
+    if [[ "$version" =~ ^([0-9]+) ]]; then
+        echo "${BASH_REMATCH[1]} 0 0"
+        return
+    fi
+
+    # missing/unparseable -> 0 0 0
+    echo "0 0 0"
+}
+
+#
+# Fetches latest version from Maven (MAVEN_BASE_URL) metadata.
+# $1 - group_id - Maven group identifier (e.g., 'org.springframework')
+# $2 - artifact_id - Maven artifact identifier (e.g., 'spring-core')
+# Returns: version string or empty string on failure.
+#
+function fetch_latest_version() {
+    local group_id=${1?Missing group_id}
+    local artifact_id=${2?Missing artifact_id}
+
+    # replace each '.' with '/'
+    local metadata_path="${group_id//.//}/$artifact_id/maven-metadata.xml"
+    local url="$MAVEN_BASE_URL/$metadata_path"
+    
+    local response
+    response=$(curl -fsSL --max-time "$CURL_MAX_TIME" --connect-timeout "$CURL_TIMEOUT" "$url" 2>&1) || {
+        log_error "Failed to fetch metadata for '$group_id:$artifact_id': $response"
+        return 1
+    }
+    
+    # extract the last <version> element
+    echo "$response" | grep -oE '<version>[^<]+</version>' | tail -n 1 | sed -E 's/<version>(.+)<\/version>/\1/'
+}
+
+#
+# Compares version components and checks for inconsistencies.
+# $1 - old_major - major version number from current module
+# $2 - old_minor - minor version number from current module
+# $3 - old_patch - patch version number from current module
+# $4 - new_major - major version number from latest release
+#
+# $5 - new_minor - minor version number from latest release
+# $6 - new_patch - patch version number from latest release
+# $7 - old_version - full version string from current module
+# $8 - new_version - full version string from latest release
+#
+# Returns: 0 if consistent, 1 if inconsistent.
+#
+function check_version_consistency() {
+    local old_major=$1 old_minor=$2 old_patch=$3
+    local new_major=$4 new_minor=$5 new_patch=$6
+    local old_version=$7 new_version=$8
+    
+    local has_inconsistency=0
+
+    # new major version is smaller than the old one
+    if (( new_major < old_major )); then
+        has_inconsistency=1
+        REPORT+=("    ${COLOR_WARN}[WARN ]${COLOR_RESET} Search API inconsistency: latest major version ($new_major) is smaller than yours ($old_major). Please check the latest version manually.")
+    elif (( new_major == old_major )); then
+        # new major version equals the old one, but the new minor version is smaller than the old one
+        if (( new_minor < old_minor )); then
+            has_inconsistency=1
+            REPORT+=("    ${COLOR_WARN}[WARN ]${COLOR_RESET} Search API inconsistency: latest minor version ($new_minor) is smaller than yours ($old_minor). Please check the latest version manually.")
+        # new major and minor versions equal the old ones, but the new patch version is smaller than the old one
+        elif (( new_minor == old_minor && new_patch < old_patch )); then
+            has_inconsistency=1
+            REPORT+=("    ${COLOR_WARN}[WARN ]${COLOR_RESET} Search API inconsistency: latest patch version ($new_patch) is smaller than yours ($old_patch). Please check the latest version manually.")
+        fi
+    fi
+    
+    if (( has_inconsistency )); then
+        REPORT+=("    ${COLOR_DEBUG}[DEBUG]${COLOR_RESET} Latest version parsed: $new_version -> major=$new_major, minor=$new_minor, patch=$new_patch")
+        REPORT+=("    ${COLOR_DEBUG}[DEBUG]${COLOR_RESET} Your version parsed: $old_version -> major=$old_major, minor=$old_minor, patch=$old_patch")
+    fi
+    
+    return $has_inconsistency
+}
+
+#
+# Checks a single module version against MAVEN_BASE_URL.
+# $1 - module - module definition string in format 'groupId:artifactId:version'
+# $2 - index - current module index (0-based) for progress display
+# $3 - total - total number of modules to check
 #
 function check_module_version() {
     local module=${1?Missing module definition}
-    local i=${2?Missing module number}
-
+    local index=${2?Missing module number}
+    local total=${3?Missing total count}
+    
     # parse 'groupId:artifactId:currentVersion'
     if ! [[ "$module" =~ ^([^:]+):([^:]+):(.+)$ ]]; then
-        echo "Invalid entry: '$module'"
-        exit 1
+        log_error "Invalid entry: '$module'"
+        FAILED_CHECKS=$(( FAILED_CHECKS + 1 ))
+        return 1
     fi
-
+    
     local group_id=${BASH_REMATCH[1]}
     local artifact_id=${BASH_REMATCH[2]}
     local old_version=${BASH_REMATCH[3]}
-
-    printf "[%2d/%d] %s:%s\n" "$((i + 1))" "${#CURRENT_MODULE_VERSIONS[@]}" "${group_id}" "${artifact_id}"
-    # Maven Central Search (JSON) API is unstable as to reporting the latest version, unlike this file
-    local new_version
-    new_version=$(curl -sSL "https://repo.maven.apache.org/maven2/${group_id//.//}/$artifact_id/maven-metadata.xml" \
-        | grep --only-matching -E '<version>.+?</version>' \
-        | tail -n 1 \
-        | sed -Ee's#<version>(.+?)</version>#\1#')
-    #echo "$new_version"
     
-    if [ -z "$new_version" ]; then
+    printf "[%2d/%d] %s:%s " "$((index + 1))" "$total" "${group_id}" "${artifact_id}"
+    
+    local new_version
+    if ! new_version=$(fetch_latest_version "$group_id" "$artifact_id"); then
+        echo "✗"
         REPORT+=("")
         REPORT+=("* $module")
-        REPORT+=("    [ERROR] Version not found, invalid API request?")
-    elif [ "$new_version" != "$old_version" ]; then
+        REPORT+=("    ${COLOR_ERROR}[ERROR]${COLOR_RESET} Version not found or network error")
+        FAILED_CHECKS=$(( FAILED_CHECKS + 1 ))
+        return 1
+    fi
+    
+    if [[ -z "$new_version" ]]; then
+        echo "✗"
         REPORT+=("")
         REPORT+=("* $module")
-        REPORT+=("    [INFO ] Latest version released: $new_version")
+        REPORT+=("    ${COLOR_ERROR}[ERROR]${COLOR_RESET} Version not found: invalid metadata or artifact does not exist")
+        FAILED_CHECKS=$(( FAILED_CHECKS + 1 ))
+        return 1
+    fi
+    
+    if [[ "$new_version" == "$old_version" ]]; then
+        echo "✓ (up-to-date)"
+        return 0
+    fi
+    
+    echo "✓ (new: $new_version)"
+    REPORT+=("")
+    REPORT+=("* $module")
+    REPORT+=("    ${COLOR_INFO}[INFO ]${COLOR_RESET} Latest version released: $new_version")
+    
+    # parse versions for consistency check
+    local old_version_parts new_version_parts
+    read -r -a old_version_parts <<< "$(parse_version "$old_version")"
+    read -r -a new_version_parts <<< "$(parse_version "$new_version")"
+    
+    check_version_consistency \
+        "${old_version_parts[0]}" "${old_version_parts[1]}" "${old_version_parts[2]}" \
+        "${new_version_parts[0]}" "${new_version_parts[1]}" "${new_version_parts[2]}" \
+        "$old_version" "$new_version"
+}
+
+#
+# Loads module definitions from modules.lst (prints them line by line). Filters out comments and blank lines.
+# $1 - input_file - path to file containing module definitions
+#
+function load_module_list() {
+    local input_file=${1?Missing input_file}
+    local -a modules
+    
+    while read -r line; do
+        # remove comments and trim whitespace
+        line="${line%%#*}"
+        line="${line#"${line%%[![:space:]]*}"}"
+        line="${line%"${line##*[![:space:]]}"}"
         
-        declare -i old_version_major
-        declare -i old_version_minor
-        declare -i old_version_patch
+        [[ -n "$line" ]] && modules+=("$line")
+    done < "$input_file"
+    
+    #log_debug "${modules[@]}"
+    printf '%s\n' "${modules[@]}"
+}
 
-        # parse '1.2.3whatever'
-        if [[ "$old_version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
-            old_version_major=${BASH_REMATCH[1]}
-            old_version_minor=${BASH_REMATCH[2]}
-            old_version_patch=${BASH_REMATCH[3]}
-        # parse '1.2whatever' (no patch segment)
-        elif [[ "$old_version" =~ ^([0-9]+)\.([0-9]+) ]]; then
-            old_version_major=${BASH_REMATCH[1]}
-            old_version_minor=${BASH_REMATCH[2]}
-            old_version_patch=0
-        # parse '1whatever' (no minor version)
-        elif [[ "$old_version" =~ ^([0-9]+) ]]; then
-            old_version_major=${BASH_REMATCH[1]}
-            old_version_minor=0
-            old_version_patch=0
-        else
-            old_version_major=0
-            old_version_minor=0
-            old_version_patch=0
-        fi
+function main() {
+    if [[ ! -f "$MODULES_FILE" ]]; then
+        log_error "Modules file not found: '$MODULES_FILE'"
+        exit 1
+    fi
+    
+    local -a modules
+    mapfile -t modules < <(load_module_list "$MODULES_FILE")
+    
+    if [[ ${#modules[@]} -eq 0 ]]; then
+        log_warn "No modules found in '$MODULES_FILE'"
+        exit
+    fi
+    
+    echo "Checking latest module versions for ${#modules[@]} modules:"
 
-        declare -i new_version_major
-        declare -i new_version_minor
-        declare -i new_version_patch
-
-        # parse '1.2.3whatever'
-        if [[ "$new_version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
-            new_version_major=${BASH_REMATCH[1]}
-            new_version_minor=${BASH_REMATCH[2]}
-            new_version_patch=${BASH_REMATCH[3]}
-        # parse '1.2whatever' (no patch segment)
-        elif [[ "$new_version" =~ ^([0-9]+)\.([0-9]+) ]]; then
-            new_version_major=${BASH_REMATCH[1]}
-            new_version_minor=${BASH_REMATCH[2]}
-            new_version_patch=0
-        # parse '1whatever' (no minor version)
-        elif [[ "$new_version" =~ ^([0-9]+) ]]; then
-            new_version_major=${BASH_REMATCH[1]}
-            new_version_minor=0
-            new_version_patch=0
-        else
-            new_version_major=0
-            new_version_minor=0
-            new_version_patch=0
-        fi
-
-        local has_inconsistency=0
-
-        # in new (a.b.c) vs. old (d.e.f), a must be greater than or equal to d
-        if [ $new_version_major -lt $old_version_major ]; then
-            has_inconsistency=1
-            REPORT+=("    [WARN ] Search API inconsistency: latest major version ($new_version_major) is smaller than yours ($old_version_major). Please check the latest version on Maven Central manually.")
-        # if major versions are equal, sanitize minor patch versions
-        elif [ $new_version_major -eq $old_version_major ]; then
-            # in new (a.b.c) vs. old (d.e.f), b must be greater than or equal to e
-            if [ $new_version_minor -lt $old_version_minor ]; then
-                has_inconsistency=1
-                REPORT+=("    [WARN ] Search API inconsistency: latest minor version ($new_version_minor) is smaller than yours ($old_version_minor). Please check the latest version on Maven Central manually.")
-            # if major and minor versions are equal, sanitize patch versions
-            elif [ $new_version_minor -eq $old_version_minor ]; then
-                # in new (a.b.c) vs. old (d.e.f), c must be greater than or equal to f
-                if [ "$new_version_patch" -lt "$old_version_patch" ]; then
-                    has_inconsistency=1
-                    REPORT+=("    [WARN ] Search API inconsistency: latest patch version ($new_version_patch) is smaller than yours ($old_version_patch). Please check the latest version on Maven Central manually.")
-                fi
-            fi
-        fi
-
-        # debug version parsing
-        if [ "$has_inconsistency" -ne 0 ]; then
-            REPORT+=("    [DEBUG] Latest version parsed: $new_version -> major=$new_version_major, minor=$new_version_minor, patch=$new_version_patch")
-            REPORT+=("    [DEBUG] Your version parsed: $old_version -> major=$old_version_major, minor=$old_version_minor, patch=$old_version_patch")
-        fi
+    local -i i=0
+    for module in "${modules[@]}"; do
+        check_module_version "$module" "$i" "${#modules[@]}"
+        i=$(( i + 1 ))
+    done
+    
+    echo
+    echo "─────────────────────────────────────────────────────────────"
+    echo "Modules having newer versions:"
+    IFS=$'\n'
+    echo -e "${REPORT[*]}"
+    echo "─────────────────────────────────────────────────────────────"
+    
+    if (( FAILED_CHECKS > 0 )); then
+        echo
+        log_warn "Failed to check $FAILED_CHECKS module(s)"
+        exit 1
     fi
 }
 
-declare -a CURRENT_MODULE_VERSIONS
-# read current module versions
-while read -r line; do
-    # remove '#'-style comments
-    line=$(echo "$line" | sed -Ee 's/^[[:space:]]*#.*$//')
-    # remove blank lines
-    line=$(echo "$line" | sed -Ee 's/^[[:space:]]+$//')
-
-    if [ -n "$line" ]; then
-        CURRENT_MODULE_VERSIONS+=("$line")
-    fi
-done <"$DIR/modules.lst"
-
-echo "Checking latest module versions..."
-#echo "${CURRENT_MODULE_VERSIONS[@]}"
-declare -i i=0
-
-for module in "${CURRENT_MODULE_VERSIONS[@]}"; do
-    check_module_version "$module" "$i"
-    i=$((i + 1))
-done
-
-echo
-echo "Modules having newer versions:"
-IFS=$'\n'
-echo "${REPORT[*]}"
+main "$@"
