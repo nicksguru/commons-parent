@@ -29,7 +29,7 @@ org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.
 
 io.cucumber:cucumber-bom:7.34.3
 io.github.resilience4j:resilience4j-bom:2.4.0
-org.junit:junit-bom:6.0.1
+org.junit:junit-bom:6.1.0
 org.assertj:assertj-bom:3.27.3
 
 org.projectlombok:lombok:1.18.46
@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.44.4
+software.amazon.awssdk:bom:2.44.12
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
@@ -49,9 +49,9 @@ org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 org.togglz:togglz-spring-boot-starter:4.6.1
 org.apache.groovy:groovy-jsr223:5.0.5
 
-com.bucket4j:bucket4j_jdk17-core:8.18.0
-com.bucket4j:bucket4j_jdk17-redis-common:8.18.0
-com.bucket4j:bucket4j_jdk17-redisson:8.18.0
+com.bucket4j:bucket4j_jdk17-core:8.19.0
+com.bucket4j:bucket4j_jdk17-redis-common:8.19.0
+com.bucket4j:bucket4j_jdk17-redisson:8.19.0
 
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
@@ -87,7 +87,7 @@ org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.1
 net.bytebuddy:byte-buddy:1.18.8
 org.objenesis:objenesis:3.5
-com.github.luben:zstd-jni:1.5.7-8
+com.github.luben:zstd-jni:1.5.7-9
 
 net.logstash.logback:logstash-logback-encoder:9.0
 ch.qos.logback:logback-classic:1.5.32
@@ -101,4 +101,4 @@ com.github.demidko:aot:2025.11.25
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
 com.maxmind.geoip2:geoip2:5.1.0
-com.googlecode.libphonenumber:libphonenumber:9.0.30
+com.googlecode.libphonenumber:libphonenumber:9.0.31
