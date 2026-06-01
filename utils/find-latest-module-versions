@@ -189,7 +189,7 @@ function check_module_version() {
         return 0
     fi
     
-    echo "✓ (new: $new_version)"
+    echo -e "$COLOR_WARN✓ (new: $new_version)$COLOR_RESET"
     REPORT+=("")
     REPORT+=("* $module")
     REPORT+=("    ${COLOR_INFO}[INFO ]${COLOR_RESET} Latest version released: $new_version")

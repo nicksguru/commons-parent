@@ -7,7 +7,7 @@
 org.springframework.boot:spring-boot-starter-parent:3.5.11
 
 org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0
-org.apache.maven.plugins:maven-surefire-plugin:3.5.5
+org.apache.maven.plugins:maven-surefire-plugin:3.5.6
 org.apache.maven.plugins:maven-gpg-plugin:3.2.8
 org.apache.maven.plugins:maven-javadoc-plugin:3.12.0
 org.apache.maven.plugins:maven-source-plugin:3.2.1
@@ -41,12 +41,12 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.44.12
+software.amazon.awssdk:bom:2.45.1
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
 
-org.togglz:togglz-spring-boot-starter:4.6.1
+org.togglz:togglz-spring-boot-starter:4.6.2
 org.apache.groovy:groovy-jsr223:5.0.5
 
 com.bucket4j:bucket4j_jdk17-core:8.19.0
@@ -56,7 +56,7 @@ com.bucket4j:bucket4j_jdk17-redisson:8.19.0
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
 io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
-org.apache.activemq:activemq-client:6.2.5
+org.apache.activemq:activemq-client:6.2.6
 
 com.gruelbox:transactionoutbox-spring:6.2.683
 com.gruelbox:transactionoutbox-jackson:6.2.683
@@ -77,7 +77,7 @@ io.hypersistence:hypersistence-utils-hibernate-62:3.9.4
 org.hibernate.orm:hibernate-spatial:6.6.18.Final
 de.codecentric:spring-boot-admin-starter-server:3.5.6
 org.springframework.security:spring-security-oauth2-client:6.4.7
-com.nimbusds:nimbus-jose-jwt:10.9
+com.nimbusds:nimbus-jose-jwt:10.9.1
 
 org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
@@ -90,8 +90,8 @@ org.objenesis:objenesis:3.5
 com.github.luben:zstd-jni:1.5.7-9
 
 net.logstash.logback:logstash-logback-encoder:9.0
-ch.qos.logback:logback-classic:1.5.32
-ch.qos.logback:logback-core:1.5.32
+ch.qos.logback:logback-classic:1.5.34
+ch.qos.logback:logback-core:1.5.34
 
 net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.1
