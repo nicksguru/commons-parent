@@ -14,7 +14,7 @@ org.apache.maven.plugins:maven-source-plugin:3.2.1
 
 com.github.ferstl:depgraph-maven-plugin:4.0.3
 com.mysema.maven:apt-maven-plugin:1.1.3
-org.jacoco:jacoco-maven-plugin:0.8.14
+org.jacoco:jacoco-maven-plugin:0.8.15
 org.qunix:structure-maven-plugin:0.0.2
 ch.acanda.maven:spring-banner-plugin:1.6.0
 
@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.46.3
+software.amazon.awssdk:bom:2.46.5
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.1
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.1
