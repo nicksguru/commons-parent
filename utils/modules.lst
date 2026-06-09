@@ -85,7 +85,7 @@ io.swagger.core.v3:swagger-annotations:2.2.50
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.1
-net.bytebuddy:byte-buddy:1.18.8
+net.bytebuddy:byte-buddy:1.18.10
 org.objenesis:objenesis:3.5
 com.github.luben:zstd-jni:1.5.7-10
 

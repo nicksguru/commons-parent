@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260609.0</version><!-- BUNDLE_VERSION -->
+    <version>100.260609.1</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260609.0</version><!-- BUNDLE_VERSION -->
+                <version>100.260609.1</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -520,7 +520,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.8</version>
+                <version>1.18.10</version>
             </dependency>
             <!-- instantiates classes having no default constructor -->
             <dependency>
