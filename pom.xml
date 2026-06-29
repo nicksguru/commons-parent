@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.15</version>
+        <version>3.5.16</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260621.0</version><!-- BUNDLE_VERSION -->
+    <version>100.260629.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260621.0</version><!-- BUNDLE_VERSION -->
+                <version>100.260629.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -92,12 +92,12 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.5.34</version>
+                <version>1.5.37</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.5.34</version>
+                <version>1.5.37</version>
             </dependency>
 
             <!-- TestContainers: core + DB providers -->
@@ -207,7 +207,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.46.15</version>
+                <version>2.46.17</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -216,7 +216,7 @@
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
-                <version>7.34.3</version>
+                <version>7.34.4</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -224,7 +224,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>6.1.0</version>
+                <version>6.1.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -355,7 +355,7 @@
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>6.2.6</version>
+                <version>6.2.7</version>
             </dependency>
 
             <!-- Apache Commons -->
@@ -494,7 +494,7 @@
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>2.2.51</version>
+                <version>2.2.52</version>
             </dependency>
 
             <!-- (de)compression of Kafka messages -->
