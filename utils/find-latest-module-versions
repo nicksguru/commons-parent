@@ -192,13 +192,20 @@ function check_module_version() {
     echo -e "$COLOR_WARN✓ (new: $new_version)$COLOR_RESET"
     REPORT+=("")
     REPORT+=("* $module")
-    REPORT+=("    ${COLOR_INFO}[INFO ]${COLOR_RESET} Latest version released: $new_version")
-    
+
     # parse versions for consistency check
     local old_version_parts new_version_parts
     read -r -a old_version_parts <<< "$(parse_version "$old_version")"
     read -r -a new_version_parts <<< "$(parse_version "$new_version")"
-    
+      REPORT+=("    ${COLOR_INFO}[INFO ]${COLOR_RESET} Latest version released: $new_version")
+
+    # a different major version means it's not a drop-in replacement
+    if [ -n "${old_version_parts[0]}" ] && \
+       [ -n "${new_version_parts[0]}" ] && \
+       [ "${new_version_parts[0]}" -ne "${old_version_parts[0]}" ]; then
+      REPORT+=("    ${COLOR_WARN}[WARN ]${COLOR_RESET} Major version changed - not a drop-in replacement")
+    fi
+
     check_version_consistency \
         "${old_version_parts[0]}" "${old_version_parts[1]}" "${old_version_parts[2]}" \
         "${new_version_parts[0]}" "${new_version_parts[1]}" "${new_version_parts[2]}" \

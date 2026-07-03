@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.46.17
+software.amazon.awssdk:bom:2.46.21
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.2
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.2
@@ -85,7 +85,7 @@ io.swagger.core.v3:swagger-annotations:2.2.52
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.2.1
-net.bytebuddy:byte-buddy:1.18.10
+net.bytebuddy:byte-buddy:1.18.11
 org.objenesis:objenesis:3.5
 com.github.luben:zstd-jni:1.5.7-11
 
@@ -95,10 +95,10 @@ ch.qos.logback:logback-core:1.5.37
 
 net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.2
-com.github.bastiaanjansen:otp-java:2.1.0
+com.github.bastiaanjansen:otp-java:2.2.0
 com.github.demidko:aot:2025.11.25
 
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:2.2
 com.maxmind.geoip2:geoip2:5.1.0
-com.googlecode.libphonenumber:libphonenumber:9.0.33
+com.googlecode.libphonenumber:libphonenumber:9.0.34
