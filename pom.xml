@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260717.0</version><!-- BUNDLE_VERSION -->
+    <version>100.260720.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260717.0</version><!-- BUNDLE_VERSION -->
+                <version>100.260720.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -558,21 +558,21 @@
             <dependency>
                 <groupId>com.github.auties00</groupId>
                 <artifactId>qr-terminal</artifactId>
-                <version>2.2</version>
+                <version>3.0</version>
             </dependency>
 
             <!-- IP-to-location lookup -->
             <dependency>
                 <groupId>com.maxmind.geoip2</groupId>
                 <artifactId>geoip2</artifactId>
-                <version>5.1.0</version>
+                <version>5.2.0</version>
             </dependency>
 
             <!-- phone number validator and parser -->
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.34</version>
+                <version>9.0.35</version>
             </dependency>
 
             <dependency>
