@@ -27,7 +27,7 @@ org.freemarker:freemarker:2.3.34
 org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
 org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.1
 
-io.cucumber:cucumber-bom:7.34.4
+io.cucumber:cucumber-bom:7.34.6
 io.github.resilience4j:resilience4j-bom:2.4.0
 org.junit:junit-bom:6.1.2
 org.assertj:assertj-bom:3.27.3
@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.49.0
+software.amazon.awssdk:bom:2.49.3
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.2
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.2
@@ -90,8 +90,8 @@ org.objenesis:objenesis:3.5
 com.github.luben:zstd-jni:1.5.7-11
 
 net.logstash.logback:logstash-logback-encoder:9.0
-ch.qos.logback:logback-classic:1.5.38
-ch.qos.logback:logback-core:1.5.38
+ch.qos.logback:logback-classic:1.6.0
+ch.qos.logback:logback-core:1.6.0
 
 net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.1
