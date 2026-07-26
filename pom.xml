@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260725.2</version><!-- BUNDLE_VERSION -->
+    <version>100.260726.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260725.2</version><!-- BUNDLE_VERSION -->
+                <version>100.260726.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -400,7 +400,7 @@
                 <artifactId>aot</artifactId>
                 <version>2025.11.25</version>
             </dependency>
-            <!-- Engish lemmatizer (lightweight) -->
+            <!-- English lemmatizer (lightweight) -->
             <dependency>
                 <groupId>org.rednoise</groupId>
                 <artifactId>rita</artifactId>
@@ -793,7 +793,7 @@
 
                         <arg>-Amapstruct.defaultInjectionStrategy=constructor</arg>
                         <!-- WARNING: stopped working in 1.6.3 (under Spring Boot 3.4.5), need to specify
-                             componentModel explicitly in each mapper! -->
+                             componentModel explicitly in each rule! -->
                         <arg>-Amapstruct.componentModel=spring</arg>
                     </compilerArgs>
                     <annotationProcessorPaths>
