@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.49.3
+software.amazon.awssdk:bom:2.49.4
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.2
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.2
@@ -56,7 +56,7 @@ com.bucket4j:bucket4j_jdk17-redisson:8.19.0
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
 io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
-org.apache.activemq:activemq-client:6.2.7
+org.apache.activemq:activemq-client:6.3.0
 
 com.gruelbox:transactionoutbox-spring:6.2.683
 com.gruelbox:transactionoutbox-jackson:6.2.683
@@ -87,7 +87,7 @@ org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.3.0
 net.bytebuddy:byte-buddy:1.18.11
 org.objenesis:objenesis:3.5
-com.github.luben:zstd-jni:1.5.7-11
+com.github.luben:zstd-jni:1.5.7-12
 
 net.logstash.logback:logstash-logback-encoder:9.0
 ch.qos.logback:logback-classic:1.6.0
