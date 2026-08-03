@@ -81,12 +81,12 @@ com.nimbusds:nimbus-jose-jwt:10.9.1
 
 org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
-io.swagger.core.v3:swagger-annotations:2.2.52
+io.swagger.core.v3:swagger-annotations:2.2.53
 
 org.xerial.snappy:snappy-java:1.1.10.8
 ru.odnoklassniki:one-nio:2.3.0
 net.bytebuddy:byte-buddy:1.18.11
-org.objenesis:objenesis:3.5
+org.objenesis:objenesis:3.6
 com.github.luben:zstd-jni:1.5.7-12
 
 net.logstash.logback:logstash-logback-encoder:9.0
