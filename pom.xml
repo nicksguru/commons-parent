@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260816.0</version><!-- BUNDLE_VERSION -->
+    <version>100.260818.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -50,7 +50,7 @@
         <testcontainers.version>2.0.5</testcontainers.version>
         <camunda.version>7.24.0</camunda.version>
         <freemarker.version>2.3.34</freemarker.version>
-        <togglz.version>4.6.2</togglz.version>
+        <togglz.version>4.6.4</togglz.version>
 
         <!-- annotation processors -->
         <jmh.version>1.37</jmh.version>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260816.0</version><!-- BUNDLE_VERSION -->
+                <version>100.260818.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -92,12 +92,12 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.6.1</version>
+                <version>1.6.3</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.6.1</version>
+                <version>1.6.3</version>
             </dependency>
 
             <!-- TestContainers: core + DB providers -->
@@ -207,7 +207,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.50.2</version>
+                <version>2.53.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -216,7 +216,7 @@
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
-                <version>7.34.6</version>
+                <version>7.34.7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -224,7 +224,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>6.1.2</version>
+                <version>6.1.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -355,7 +355,7 @@
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>6.3.0</version>
+                <version>6.3.1</version>
             </dependency>
 
             <!-- Apache Commons -->
@@ -372,7 +372,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.5.0</version>
+                <version>4.6.0</version>
             </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
@@ -410,7 +410,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>33.6.0-jre</version>
+                <version>33.7.1-jre</version>
             </dependency>
 
             <dependency>
@@ -448,7 +448,7 @@
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk18on</artifactId>
-                <version>1.85</version>
+                <version>1.85.2</version>
             </dependency>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
@@ -494,7 +494,7 @@
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>2.2.53</version>
+                <version>2.2.54</version>
             </dependency>
 
             <!-- (de)compression of Kafka messages -->
@@ -507,7 +507,7 @@
             <dependency>
                 <groupId>com.github.luben</groupId>
                 <artifactId>zstd-jni</artifactId>
-                <version>1.5.7-12</version>
+                <version>1.5.7-15</version>
             </dependency>
             <!-- OneNio serializer for @Cacheable -->
             <dependency>
@@ -520,7 +520,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.11</version>
+                <version>1.18.12</version>
             </dependency>
             <!-- instantiates classes having no default constructor -->
             <dependency>
@@ -572,7 +572,7 @@
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.36</version>
+                <version>9.0.37</version>
             </dependency>
 
             <dependency>
