@@ -22,7 +22,7 @@ pw.krejci:jmh-maven-plugin:0.2.2
 org.openjdk.jmh:jmh-core:1.37
 
 org.fugerit.java:freemarker-maven-plugin:1.2.0
-org.freemarker:freemarker:2.3.34
+org.freemarker:freemarker:2.3.35
 
 org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.24.0
 org.camunda.community.rest:camunda-platform-7-rest-client-spring-boot-openapi:7.24.1
@@ -41,13 +41,13 @@ am.ik.yavi:yavi:0.16.0
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.53.2
+software.amazon.awssdk:bom:2.54.5
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.2
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.2
 
 # same version for all other Togglz components, such as Togglz Core
-org.togglz:togglz-spring-boot-starter:4.6.2
+org.togglz:togglz-spring-boot-starter:4.6.4
 org.apache.groovy:groovy-jsr223:5.0.5
 
 com.bucket4j:bucket4j_jdk17-core:8.19.0
@@ -57,7 +57,7 @@ com.bucket4j:bucket4j_jdk17-redisson:8.19.0
 org.redisson:redisson-spring-boot-starter:3.52.0
 io.mongock:mongock-community-bom:5.5.1
 io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
-org.apache.activemq:activemq-client:6.3.0
+org.apache.activemq:activemq-client:6.3.1
 
 com.gruelbox:transactionoutbox-spring:6.2.683
 com.gruelbox:transactionoutbox-jackson:6.2.683
@@ -91,8 +91,8 @@ org.objenesis:objenesis:3.6
 com.github.luben:zstd-jni:1.5.7-15
 
 net.logstash.logback:logstash-logback-encoder:9.0
-ch.qos.logback:logback-classic:1.6.1
-ch.qos.logback:logback-core:1.6.1
+ch.qos.logback:logback-classic:1.6.3
+ch.qos.logback:logback-core:1.6.3
 
 net.openhft:zero-allocation-hashing:2026.0
 com.github.f4b6a3:uuid-creator:6.1.1
@@ -102,4 +102,4 @@ com.github.demidko:aot:2025.11.25
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:3.0
 com.maxmind.geoip2:geoip2:5.2.0
-com.googlecode.libphonenumber:libphonenumber:9.0.37
+com.googlecode.libphonenumber:libphonenumber:9.0.38

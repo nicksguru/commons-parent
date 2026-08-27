@@ -49,7 +49,7 @@
 
         <testcontainers.version>2.0.5</testcontainers.version>
         <camunda.version>7.24.0</camunda.version>
-        <freemarker.version>2.3.34</freemarker.version>
+        <freemarker.version>2.3.35</freemarker.version>
         <togglz.version>4.6.4</togglz.version>
 
         <!-- annotation processors -->
@@ -207,7 +207,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.53.2</version>
+                <version>2.54.5</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -572,7 +572,7 @@
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.37</version>
+                <version>9.0.38</version>
             </dependency>
 
             <dependency>
