@@ -33,7 +33,7 @@ See full version history on
 <parent>
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>100.260829.0</version>
+    <version>100.260831.0</version>
 </parent>
 ```
 
