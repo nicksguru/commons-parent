@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>100.260904.1</version><!-- BUNDLE_VERSION -->
+    <version>100.260905.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -55,10 +55,10 @@
         <!-- annotation processors -->
         <jmh.version>1.37</jmh.version>
         <maven-surefire-junit5-tree-reporter.version>1.4.0</maven-surefire-junit5-tree-reporter.version>
-        <lombok.version>1.18.46</lombok.version>
+        <lombok.version>1.18.48</lombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <mapstruct.version>1.6.3</mapstruct.version>
-        <yavi.version>0.16.0</yavi.version>
+        <yavi.version>0.17.0</yavi.version>
 
         <!-- different for each submodule -->
         <generated.sources.directory>${project.build.directory}/generated-sources</generated.sources.directory>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.260904.1</version><!-- BUNDLE_VERSION -->
+                <version>100.260905.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -207,7 +207,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.54.7</version>
+                <version>2.54.13</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -520,7 +520,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.12</version>
+                <version>1.18.13</version>
             </dependency>
             <!-- instantiates classes having no default constructor -->
             <dependency>
@@ -611,10 +611,37 @@
 
         <pluginManagement>
             <plugins>
+                <!-- Enhance entity bytecode after compilation. Mandatory for @Basic(fetch = LAZY) to work - without
+                     enhancement Hibernate 6 ignores the above hint. For configuration details, see
+                     https://vladmihalcea.com/maven-gradle-hibernate-enhance-plugin/.
+
+                     The groupId differs from hibernate-core's since the Hibernate tooling split. The last 6.6.x tooling
+                     release is 6.6.18.Final (ORM patch releases beyond it have no plugin build), which
+                     stays bytecode-compatible with hibernate-core 6.6.x managed by the Spring Boot BOM. -->
+                <plugin>
+                    <groupId>org.hibernate.orm.tooling</groupId>
+                    <artifactId>hibernate-enhance-maven-plugin</artifactId>
+                    <version>6.6.18.Final</version>
+                    <dependencies>
+                        <!-- The plugin pins byte-buddy 1.15.11 which cannot read Java 25 class files. Override with
+                             the Byte Buddy version managed by the Spring Boot BOM. The project can use even newer
+                             versions. -->
+                        <dependency>
+                            <groupId>net.bytebuddy</groupId>
+                            <artifactId>byte-buddy</artifactId>
+                            <version>${byte-buddy.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <enableLazyInitialization>true</enableLazyInitialization>
+                        <enableDirtyTracking>true</enableDirtyTracking>
+                        <enableAssociationManagement>true</enableAssociationManagement>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.6</version>
+                    <version>3.6.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
