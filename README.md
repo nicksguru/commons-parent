@@ -33,7 +33,7 @@ See full version history on
 <parent>
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>100.260905.1</version>
+    <version>100.260921.0</version>
 </parent>
 ```
 
@@ -59,7 +59,7 @@ The GPG key ID (as per `gpg --list-keys`) required for the deploying is stored i
 
 ## AI Tip
 
-Grab a 10% discount on **GLM 4.7 Coding Plan** model.
+Grab a 10% discount on **GLM Coding Plan**.
 
 🚀 Full support for 10+ top coding tools such as Claude Code, Cursor, Cline, Kilo Code, Roo Code, Sweep AI - starting at
 just $3 per month. **[Subscribe now](https://z.ai/subscribe?ic=FQFBJRY7RM)** and take advantage of the limited-time
