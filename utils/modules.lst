@@ -41,7 +41,7 @@ am.ik.yavi:yavi:0.17.1
 org.springframework.cloud:spring-cloud-dependencies:2025.0.0
 org.springframework.cloud:spring-cloud-contract-wiremock:4.3.0
 io.awspring.cloud:spring-cloud-aws-dependencies:3.4.1
-software.amazon.awssdk:bom:2.55.11
+software.amazon.awssdk:bom:2.55.16
 
 org.springframework.statemachine:spring-statemachine-autoconfigure:4.0.2
 org.springframework.statemachine:spring-statemachine-data-jpa:4.0.2
@@ -63,7 +63,7 @@ com.gruelbox:transactionoutbox-spring:6.2.683
 com.gruelbox:transactionoutbox-jackson:6.2.683
 
 commons-beanutils:commons-beanutils:1.11.0
-commons-codec:commons-codec:1.22.1
+commons-codec:commons-codec:1.23.1
 commons-validator:commons-validator:1.11.0
 commons-io:commons-io:2.22.0
 org.apache.commons:commons-lang3:3.21.0
@@ -84,11 +84,11 @@ org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.6
 org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6
 io.swagger.core.v3:swagger-annotations:2.2.55
 
-org.xerial.snappy:snappy-java:1.1.10.10
-ru.odnoklassniki:one-nio:2.4.0
-net.bytebuddy:byte-buddy:1.18.14
+org.xerial.snappy:snappy-java:1.1.10.12
+ru.odnoklassniki:one-nio:2.5.0
+net.bytebuddy:byte-buddy:1.18.15
 org.objenesis:objenesis:3.6
-com.github.luben:zstd-jni:1.5.7-21
+com.github.luben:zstd-jni:1.5.7-23
 
 net.logstash.logback:logstash-logback-encoder:9.0
 ch.qos.logback:logback-classic:1.6.5
@@ -102,4 +102,4 @@ com.github.demidko:aot:2025.11.25
 com.google.zxing:javase:3.5.4
 com.github.auties00:qr-terminal:3.0
 com.maxmind.geoip2:geoip2:5.2.0
-com.googlecode.libphonenumber:libphonenumber:9.0.40
+com.googlecode.libphonenumber:libphonenumber:9.0.41
