@@ -14,7 +14,7 @@
     <!-- WARNING: this version number is duplicated below.
          NOTE: temporarily NOT in sync with the imported 'bom' version below (only this module and mongo-starter were
          re-released for the Flamingock migration, without re-releasing the whole module train) -->
-    <version>100.261102.0</version><!-- BUNDLE_VERSION -->
+    <version>300.261102.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -82,7 +82,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>100.261014.0</version><!-- BUNDLE_VERSION -->
+                <version>300.261102.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

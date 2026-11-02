@@ -33,7 +33,8 @@ See full version history on
 <parent>
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <version>100.261014.0</version>
+    <!-- 400.* for Sprint Boot 4; 300.* for Spring Boot 3 -->
+    <version>300.261102.0</version>
 </parent>
 ```
 
