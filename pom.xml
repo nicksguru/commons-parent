@@ -60,7 +60,7 @@
         <lombok.version>1.18.48</lombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <mapstruct.version>1.6.3</mapstruct.version>
-        <yavi.version>0.17.1</yavi.version>
+        <yavi.version>0.17.2</yavi.version>
         <!-- also needed by the annotation processor that doesn't consult dependencyManagement -->
         <flamingock.version>1.4.5</flamingock.version>
 
@@ -96,12 +96,12 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.6.5</version>
+                <version>1.6.6</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.6.5</version>
+                <version>1.6.6</version>
             </dependency>
 
             <!-- TestContainers: core + DB providers -->
@@ -216,7 +216,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.55.16</version>
+                <version>2.57.8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -353,7 +353,7 @@
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>6.3.2</version>
+                <version>6.4.0</version>
             </dependency>
 
             <!-- Apache Commons -->
@@ -375,7 +375,7 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.22.1</version>
+                <version>1.23.0</version>
             </dependency>
             <dependency>
                 <groupId>commons-validator</groupId>
@@ -474,7 +474,7 @@
             <dependency>
                 <groupId>com.nimbusds</groupId>
                 <artifactId>nimbus-jose-jwt</artifactId>
-                <version>10.9.1</version>
+                <version>10.10</version>
             </dependency>
 
             <!-- Swagger -->
@@ -505,7 +505,7 @@
             <dependency>
                 <groupId>com.github.luben</groupId>
                 <artifactId>zstd-jni</artifactId>
-                <version>1.5.7-23</version>
+                <version>1.5.7-25</version>
             </dependency>
             <!-- OneNio serializer for @Cacheable -->
             <dependency>
@@ -518,7 +518,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.15</version>
+                <version>1.18.17</version>
             </dependency>
             <!-- instantiates classes having no default constructor -->
             <dependency>
@@ -570,7 +570,7 @@
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.41</version>
+                <version>9.0.42</version>
             </dependency>
 
             <dependency>
@@ -639,7 +639,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.6.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -649,7 +649,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.15</version>
+                    <version>0.8.16</version>
                 </plugin>
                 <plugin>
                     <groupId>com.mysema.maven</groupId>
@@ -664,7 +664,7 @@
                 <plugin>
                     <groupId>com.github.ferstl</groupId>
                     <artifactId>depgraph-maven-plugin</artifactId>
-                    <version>4.0.5</version>
+                    <version>4.0.6</version>
                 </plugin>
                 <plugin>
                     <groupId>org.qunix</groupId>
