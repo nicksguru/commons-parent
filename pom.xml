@@ -11,8 +11,10 @@
 
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
-    <!-- WARNING: this version number is duplicated below -->
-    <version>100.261014.0</version><!-- BUNDLE_VERSION -->
+    <!-- WARNING: this version number is duplicated below.
+         NOTE: temporarily NOT in sync with the imported 'bom' version below (only this module and mongo-starter were
+         re-released for the Flamingock migration, without re-releasing the whole module train) -->
+    <version>100.261102.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -59,6 +61,8 @@
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <yavi.version>0.17.1</yavi.version>
+        <!-- also needed by the annotation processor that doesn't consult dependencyManagement -->
+        <flamingock.version>1.4.5</flamingock.version>
 
         <!-- different for each submodule -->
         <generated.sources.directory>${project.build.directory}/generated-sources</generated.sources.directory>
@@ -313,24 +317,13 @@
                 <version>3.52.0</version>
             </dependency>
 
-            <!-- MongoDB migrations -->
+            <!-- MongoDB migrations (successor of Mongock, imports its audit log), see https://docs.flamingock.io -->
             <dependency>
-                <groupId>io.mongock</groupId>
-                <artifactId>mongock-community-bom</artifactId>
-                <version>5.5.1</version>
+                <groupId>io.flamingock</groupId>
+                <artifactId>flamingock-community-bom</artifactId>
+                <version>${flamingock.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!-- Spring Boot 3 specials -->
-            <dependency>
-                <groupId>io.mongock</groupId>
-                <artifactId>mongock-springboot-v3</artifactId>
-                <version>5.4.4</version>
-            </dependency>
-            <dependency>
-                <groupId>io.mongock</groupId>
-                <artifactId>mongodb-springdata-v4-driver</artifactId>
-                <version>5.4.4</version>
             </dependency>
 
             <dependency>

@@ -55,7 +55,7 @@ com.bucket4j:bucket4j_jdk17-redis-common:8.21.0
 com.bucket4j:bucket4j_jdk17-redisson:8.21.0
 
 org.redisson:redisson-spring-boot-starter:3.52.0
-io.mongock:mongock-community-bom:5.5.1
+io.flamingock:flamingock-community-bom:1.4.5
 io.freefair.okhttp-spring-boot:okhttp5-spring-boot-starter:3.5.3
 org.apache.activemq:activemq-client:6.3.2
 
