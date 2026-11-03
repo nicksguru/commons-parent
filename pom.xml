@@ -12,7 +12,7 @@
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>400.261101.0</version><!-- BUNDLE_VERSION -->
+    <version>400.261103.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -80,7 +80,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>400.261101.0</version><!-- BUNDLE_VERSION -->
+                <version>400.261103.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -777,7 +777,13 @@
                              componentModel explicitly in each rule! -->
                         <arg>-Amapstruct.componentModel=spring</arg>
                     </compilerArgs>
+                    <!-- version is mandatory here - annotationProcessorPaths don't consult dependencyManagement -->
                     <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.flamingock</groupId>
+                            <artifactId>flamingock-processor</artifactId>
+                            <version>${flamingock.version}</version>
+                        </path>
                         <!-- @ConstraintArguments -->
                         <path>
                             <groupId>am.ik.yavi</groupId>
