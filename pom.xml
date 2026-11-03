@@ -14,7 +14,7 @@
     <!-- WARNING: this version number is duplicated below.
          NOTE: temporarily NOT in sync with the imported 'bom' version below (only this module and mongo-starter were
          re-released for the Flamingock migration, without re-releasing the whole module train) -->
-    <version>300.261102.0</version><!-- BUNDLE_VERSION -->
+    <version>300.261103.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -82,7 +82,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>300.261102.0</version><!-- BUNDLE_VERSION -->
+                <version>300.261103.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -822,6 +822,11 @@
                         <arg>-Amapstruct.componentModel=spring</arg>
                     </compilerArgs>
                     <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.flamingock</groupId>
+                            <artifactId>flamingock-processor</artifactId>
+                            <version>${flamingock.version}</version>
+                        </path>
                         <!-- @ConstraintArguments -->
                         <path>
                             <groupId>am.ik.yavi</groupId>
