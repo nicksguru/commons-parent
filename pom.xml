@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.2.0-RC1</version>
+        <version>4.2.0-RC2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nicks.commons</groupId>
     <artifactId>parent</artifactId>
     <!-- WARNING: this version number is duplicated below -->
-    <version>400.261103.0</version><!-- BUNDLE_VERSION -->
+    <version>400.261119.0</version><!-- BUNDLE_VERSION -->
     <packaging>pom</packaging>
 
     <name>Nicks.Guru Commons Parent</name>
@@ -54,11 +54,11 @@
 
         <!-- annotation processors -->
         <jmh.version>1.37</jmh.version>
-        <maven-surefire-junit5-tree-reporter.version>1.4.0</maven-surefire-junit5-tree-reporter.version>
+        <maven-surefire-junit5-tree-reporter.version>2.2.0</maven-surefire-junit5-tree-reporter.version>
         <lombok.version>1.18.48</lombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <mapstruct.version>1.6.3</mapstruct.version>
-        <yavi.version>0.17.2</yavi.version>
+        <yavi.version>0.18.0</yavi.version>
         <!-- also needed by the annotation processor that doesn't consult dependencyManagement -->
         <flamingock.version>1.4.5</flamingock.version>
 
@@ -80,7 +80,7 @@
             <dependency>
                 <groupId>guru.nicks.commons</groupId>
                 <artifactId>bom</artifactId>
-                <version>400.261103.0</version><!-- BUNDLE_VERSION -->
+                <version>400.261119.0</version><!-- BUNDLE_VERSION -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -191,14 +191,14 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <!-- 2025.1 train supports Spring Boot 4.0.x (2026.0 train for Boot 4.1 has no GA yet) -->
-                <version>2026.0.0-RC1</version>
+                <version>2026.0.0-RC2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>io.awspring.cloud</groupId>
                 <artifactId>spring-cloud-aws-dependencies</artifactId>
-                <version>4.2.1</version>
+                <version>4.2.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -207,7 +207,7 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>2.57.8</version>
+                <version>2.59.4</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -216,7 +216,7 @@
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
-                <version>8.0.4</version>
+                <version>8.1.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -282,17 +282,17 @@
             <dependency>
                 <groupId>com.bucket4j</groupId>
                 <artifactId>bucket4j_jdk17-core</artifactId>
-                <version>8.21.0</version>
+                <version>8.22.0</version>
             </dependency>
             <dependency>
                 <groupId>com.bucket4j</groupId>
                 <artifactId>bucket4j_jdk17-redis-common</artifactId>
-                <version>8.21.0</version>
+                <version>8.22.0</version>
             </dependency>
             <dependency>
                 <groupId>com.bucket4j</groupId>
                 <artifactId>bucket4j_jdk17-redisson</artifactId>
-                <version>8.21.0</version>
+                <version>8.22.0</version>
             </dependency>
 
             <dependency>
@@ -349,7 +349,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.21.0</version>
+                <version>3.22.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -392,7 +392,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>33.7.2-jre</version>
+                <version>33.8.0-jre</version>
             </dependency>
 
             <dependency>
@@ -430,19 +430,19 @@
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk18on</artifactId>
-                <version>1.86</version>
+                <version>1.87</version>
             </dependency>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcpkix-jdk18on</artifactId>
-                <version>1.86</version>
+                <version>1.87</version>
             </dependency>
 
             <!-- Spring Boot Admin server+UI (4.x line supports Spring Boot 4) -->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>4.1.4</version>
+                <version>4.1.5</version>
             </dependency>
             <dependency>
                 <groupId>de.codecentric</groupId>
@@ -484,7 +484,7 @@
             <dependency>
                 <groupId>com.github.luben</groupId>
                 <artifactId>zstd-jni</artifactId>
-                <version>1.5.7-25</version>
+                <version>1.5.7-28</version>
             </dependency>
             <!-- OneNio serializer for @Cacheable -->
             <dependency>
@@ -497,7 +497,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.16</version>
+                <version>1.18.17</version>
             </dependency>
             <!-- instantiates classes having no default constructor -->
             <dependency>
@@ -542,14 +542,14 @@
             <dependency>
                 <groupId>com.maxmind.geoip2</groupId>
                 <artifactId>geoip2</artifactId>
-                <version>5.2.0</version>
+                <version>5.3.0</version>
             </dependency>
 
             <!-- phone number validator and parser -->
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber</artifactId>
-                <version>9.0.42</version>
+                <version>9.0.44</version>
             </dependency>
 
             <dependency>
@@ -620,7 +620,7 @@
                 <plugin>
                     <groupId>com.github.ferstl</groupId>
                     <artifactId>depgraph-maven-plugin</artifactId>
-                    <version>4.0.5</version>
+                    <version>4.0.6</version>
                 </plugin>
                 <plugin>
                     <groupId>org.qunix</groupId>
